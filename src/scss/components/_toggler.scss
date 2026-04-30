@@ -1,0 +1,123 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/button" as button-mixin;
+@use "../abstracts/media-query" as media;
+@use "../abstracts/state" as state;
+
+.toggler {
+  width: variables.$toggler-width;
+  aspect-ratio: 1 / 1;
+
+  @include button-mixin.button-reset;
+  border-left: 1px solid variables.$color-base-ghost;
+
+  &--block-transition {
+    transition: none;
+  }
+
+  @include state.hover {
+    @include media.below-tablet {
+      background-color: rgba(variables.$color-primary-light, 0.3);
+    }
+  }
+
+  @include state.focus-visible {
+    @include media.below-tablet {
+
+      outline: none;
+
+      background-color: unset;
+
+      .toggler__burger {
+        outline: 2px solid variables.$color-primary;
+        outline-offset: 2px;
+
+        border-radius: 5px;
+      }
+    }
+  }
+
+  @include state.active {
+    @include media.below-tablet {
+      .toggler__burger {
+        transform: scale(0.98), translateY(-50%);
+      }
+    }
+  }
+
+  @include state.touch-active {
+    @include media.below-tablet {
+      opacity: 0.7;
+    }
+  }
+
+  @include state.disabled {
+    pointer-events: none;
+
+    background-color: variables.$color-disabled;
+    opacity: 0.4;
+  }
+}
+
+.toggler__burger {
+  position: absolute;
+  top: 50%;
+  right: 7px;
+
+  width: 50px;
+  height: 45px;
+
+  transform: translateY(-50%);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 50%;
+
+    width: 28px;
+    height: 2px;
+
+    background-color: variables.$color-base;
+
+    transition:
+      transform variables.$transition-base,
+      top variables.$transition-base,
+      bottom variables.$transition-base,
+      left variables.$transition-base,
+      bottom variables.$transition-base,
+      width variables.$transition-base;
+    will-change: transform;
+
+    transform: translateX(-50%);
+    transform-origin: center left;
+  }
+
+  &::after {
+    top: unset;
+    bottom: 14px;
+  }
+}
+
+.toggler--open {
+  .toggler__burger {
+    &::before {
+      top: 12px;
+      left: 15px;
+
+      width: 27px;
+
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      bottom: 12px;
+      left: 15px;
+
+      width: 27px;
+
+      transform: rotate(-45deg);
+    }
+  }
+}

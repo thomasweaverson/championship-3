@@ -1,0 +1,205 @@
+// ============================================
+// Цветовая система
+// ============================================
+
+// Primary colors
+
+$color-primary-100: #9cb1e9;
+$color-primary-500: #1859ff;
+$color-primary-600: #0027b2;
+$color-primary-700: #001a68;
+$color-primary-900: #0d1627;
+
+// Semantic colors
+
+$color-primary-light: $color-primary-100;
+$color-primary: $color-primary-500;
+$color-primary-medium: $color-primary-600;
+$color-primary-strong: $color-primary-700;
+$color-base: $color-primary-900;
+$color-base-ghost: rgba($color-base, 0.1);
+$color-accent: #d9f243;
+$color-accent-strong: #8fa800;
+$color-disabled: #d9d9d9;
+$color-danger: #ef4444;
+$color-white: #ffffff;
+$color-neutral-light: #eef4f6;
+$color-neutral: #dee9ed;
+
+// ============================================
+// Типографика
+// ============================================
+
+$font-name-base: "Manrope";
+$font-name-primary: "Loos Wide";
+$font-name-secondary: "Inter";
+
+$font-basic-fallback: -apple-system, blinkmacsystemfont, "Segoe UI", "Roboto", "Arial", sans-serif;
+$font-family-base: $font-name-base, "Helvetica Neue", $font-basic-fallback;
+$font-family-primary: $font-name-primary, $font-name-secondary, $font-basic-fallback;
+$font-family-secondary: $font-name-secondary, system-ui, -apple-system, sans-serif;
+
+// Font sizes (px)
+
+$font-size-xxs: 14px;
+$font-size-xs: 16px;
+$font-size-s: 18px;
+$font-size-m: 24px;
+$font-size-l: 30px;
+$font-size-xl: 34px;
+$font-size-2xl: 38px;
+$font-size-3xl: 40px;
+$font-size-4xl: 46px;
+$font-size-5xl: 55px;
+$font-size-6xl: 90px;
+$font-size-7xl: 120px;
+
+// Font weights
+
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+
+// Line heights
+
+$line-height-ultra-tight: 0.88;
+$line-height-extra-tight: 0.96;
+$line-height-tight: 0.98;
+$line-height-solid: 1;
+$line-height-snug: 1.02;
+$line-height-normal: 1.3;
+$line-height-relaxed: 1.4;
+$line-height-loose: 1.5;
+
+// Letter spacings
+
+$letter-spacing-ultra-tight: -6%;
+$letter-spacing-tight: -1%;
+$letter-spacing-normal: 0;
+$letter-spacing-loose: 1%;
+
+// ============================================
+// Контейнер
+// ============================================
+
+$page-container-max-width: 1360px;
+
+// ============================================
+// Брейкпоинты
+// ============================================
+
+$breakpoint-step: 240px;
+$breakpoint-ultra-slim: 300px;
+$breakpoint-mobile: 480px;
+$breakpoint-sub-tablet: $breakpoint-mobile + $breakpoint-step;
+$breakpoint-tablet: $breakpoint-mobile + ($breakpoint-step * 2);
+$breakpoint-sub-desktop: $breakpoint-tablet + $breakpoint-step;
+$breakpoint-desktop: 1440px;
+
+// ============================================
+// Отступы (indents)
+// ============================================
+
+$indent-ultra-slim: 10px;
+$indent-mobile: 15px;
+$indent-sub-tablet: 20px;
+$indent-tablet: 30px;
+$indent-sub-desktop: 35px;
+$indent-desktop: 40px;
+
+// ============================================
+// Z-index слои
+// ============================================
+
+$z-index-backdrop: -10;
+$z-index-low: 50;
+$z-index-basic: 100;
+$z-index-fixed: 110;
+
+// ============================================
+// Min heights
+// ============================================
+
+$header-min-height: 70px;
+$hero-min-height: 720px;
+$about-min-height: 600px;
+$community-min-height: 500px;
+$price-min-height: 550px;
+$work-min-height: 600px;
+$certificate-min-height: 300px;
+$footer-min-height: 700px;
+
+// ============================================
+// Переходы (transitions)
+// ============================================
+
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-mouse: 4000ms infinite alternate;
+$transition-mouse-wiggle: 6000ms infinite alternate ease-in-out;
+$transition-mouse-jingle: 8000ms infinite alternate ease-in-out;
+$transition-reveal: 400ms ease-out;
+$transition-certificate: 500ms ease-out;
+
+// ============================================
+// Header
+// ============================================
+
+$header-backdrop-blur: 40px;
+$header-border-thickness: 1px;
+
+$header-logo-height: 28px;
+
+$header-menu-slide-up-min-width: 580px;
+
+$mobile-menu-backdrop-blur: 40px;
+
+$toggler-width: $header-min-height - 1;
+
+$header-logo-hover-filter: drop-shadow(0 2px 2px rgba($color-base, 0.3));
+$header-logo-active-filter: drop-shadow(0 0 2px rgba($color-base, 0.3));
+
+// ============================================
+// community
+// ============================================
+
+$community-gallery-gradient-background:
+  radial-gradient(
+    94.44% 92.48% at 2.96% 50%,
+    $color-neutral 18.98%,
+    $color-neutral-light 50.96%,
+    $color-white 88.74%
+  );
+
+// ============================================
+// Work
+// ============================================
+
+$work-shift: -345px;
+$work-offset: 345px;
+// ============================================
+// Отступы (spacing)
+// ============================================
+
+$spacing-unit: 5px;
+
+$spacing-0: 0;
+$spacing-1: $spacing-unit;
+$spacing-2: $spacing-unit * 2;
+$spacing-3: $spacing-unit * 3;
+$spacing-4: $spacing-unit * 4;
+$spacing-5: $spacing-unit * 5;
+$spacing-6: $spacing-unit * 6;
+$spacing-7: $spacing-unit * 7;
+$spacing-8: $spacing-unit * 8;
+$spacing-9: $spacing-unit * 9;
+$spacing-10: $spacing-unit * 10;
+$spacing-11: $spacing-unit * 11;
+$spacing-12: $spacing-unit * 12;
+
+// ============================================
+// Настройки анимаций
+// ============================================
+
+$reveal-translating: 150px;
+$scale-on-focus: 1.06;

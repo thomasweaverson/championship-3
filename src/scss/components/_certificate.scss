@@ -1,0 +1,163 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/button" as button-mixin;
+@use "../abstracts/media-query" as media;
+@use "../abstracts/state" as state;
+
+.certificate {
+  min-height: variables.$certificate-min-height;
+}
+
+.certificate__container {
+  position: relative;
+  right: 1px;
+  z-index: variables.$z-index-basic;
+
+  max-width: variables.$page-container-max-width;
+  margin: 0 auto;
+  padding: 31px variables.$spacing-3 variables.$spacing-4;
+
+  background-color: variables.$color-neutral-light;
+
+  @include media.tablet {
+    right: 0;
+
+    display: grid;
+    grid-template-columns: minmax(0, 32fr) minmax(0, 33fr);
+
+    margin-bottom: -150px;
+
+    padding: variables.$spacing-6 variables.$spacing-3 variables.$spacing-4;
+
+    border-radius: 0;
+
+    @include mixins.fluid(
+      padding-bottom,
+      variables.$spacing-4,
+      variables.$spacing-6
+    );
+    @include mixins.fluid(
+      border-radius,
+      1px,
+      32px,
+      variables.$breakpoint-tablet,
+      variables.$breakpoint-desktop
+    );
+    @include mixins.fluid(
+      padding-left,
+      variables.$spacing-3,
+      variables.$spacing-6
+    );
+    @include mixins.fluid(
+      padding-right,
+      variables.$spacing-3,
+      variables.$spacing-6
+    );
+    @include mixins.fluid(
+      margin-bottom,
+      -150px,
+      -250px,
+      variables.$breakpoint-tablet,
+      variables.$breakpoint-desktop
+    );
+  }
+
+  @include media.desktop {
+    margin-bottom: -250px;
+  }
+}
+
+.certificate__header {
+  max-width: variables.$breakpoint-mobile - variables.$indent-mobile * 2;
+  min-height: 250px;
+  margin: 0 auto variables.$spacing-11;
+
+  @include media.tablet {
+    max-width: unset;
+    margin: 0;
+  }
+}
+
+.certificate__hiding-wrapper {
+  @include mixins.hiding-wrapper;
+}
+
+.certificate__title {
+  margin: 0 0 18px;
+
+  transition: transform variables.$transition-slow;
+
+  transform: translateY(0);
+
+  @include typography-presets.certificate-title-wide;
+
+  @include media.tablet {
+    margin: 0 0 variables.$spacing-4;
+  }
+
+  &--will-reveal-up {
+    transform: translateY(variables.$reveal-translating);
+    will-change: transform;
+  }
+}
+
+.certificate__description {
+  margin: 0 0 variables.$spacing-5;
+
+  @include typography-presets.certificate-text;
+}
+
+.certificate__button {
+  min-width: 199px;
+
+  @include button-mixin.button;
+
+  &--will-reveal-up {
+    transform: translateY(variables.$reveal-translating);
+    will-change: transform;
+  }
+}
+
+.certificate__image-wrapper {
+  position: relative;
+  z-index: variables.$z-index-basic;
+
+  width: fit-content;
+
+  margin: 0 auto;
+
+  &--will-appear {
+    opacity: 0;
+
+    transform: scale(0.5);
+    will-change: transform;
+  }
+
+  @include mixins.fluid(
+    margin-bottom,
+    -100px,
+    -170px,
+    variables.$breakpoint-ultra-slim,
+    variables.$breakpoint-mobile
+  );
+
+  @include media.tablet {
+    margin: 0;
+
+    & img {
+      @include mixins.fluid(
+        width,
+        448px,
+        660px
+      );
+    }
+  }
+}
+
+.certificate__image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}

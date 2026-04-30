@@ -1,0 +1,86 @@
+@use "./basic-text-presets" as basic;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/media-query" as media;
+
+@mixin hero-title {
+  text-indent: -41px;
+
+  @include basic.text-primary-wide(
+    $size: variables.$font-size-3xl,
+    $line-height: variables.$line-height-snug,
+    $letter-spacing: variables.$letter-spacing-tight,
+    $color: variables.$color-base
+  );
+  @include mixins.fluid(
+    font-size,
+    variables.$font-size-3xl,
+    variables.$font-size-6xl,
+    variables.$breakpoint-tablet,
+    variables.$breakpoint-desktop
+  );
+  @include mixins.fluid(
+    text-indent,
+    -41px,
+    -344px
+  );
+  @include mixins.fluid(
+    padding-left,
+    41px,
+    344px
+  );
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-m,
+      variables.$font-size-3xl,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+    @include mixins.fluid(
+      text-indent,
+      -15px,
+      -41px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+    @include mixins.fluid(
+      padding-left,
+      15px,
+      41px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+
+  @include media.tablet {
+    line-height: 0.93;
+    letter-spacing: variables.$letter-spacing-normal;
+  }
+}
+
+@mixin hero-base {
+  @include basic.text-base(
+    $size: variables.$font-size-s,
+    $is-semi-bold: false,
+    $line-height: variables.$line-height-relaxed,
+    $letter-spacing: variables.$letter-spacing-normal,
+    $color: variables.$color-base
+  );
+  @include mixins.fluid(
+    font-size,
+    variables.$font-size-s,
+    variables.$font-size-m
+  );
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-xxs,
+      variables.$font-size-s,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}

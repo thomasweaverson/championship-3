@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/keyframes" as keyframes;
+@use "../abstracts/state" as state;
+
+.reveal-up-animate {
+  @include keyframes.reveal-up;
+
+  @include state.focus-visible {
+    @include keyframes.reveal-up-button-with-focus($transition: variables.$transition-certificate);
+  }
+}
+
+.appear-animate {
+  @include keyframes.appear;
+}
+
+.reveal-up-animate-relaxed {
+  @include keyframes.reveal-up($transition: variables.$transition-certificate);
+
+  @include state.focus-visible {
+    @include keyframes.reveal-up-button-with-focus($transition: variables.$transition-certificate);
+  }
+}
+
+.appear-animate-relaxed {
+  @include keyframes.appear($transition: variables.$transition-certificate);
+}

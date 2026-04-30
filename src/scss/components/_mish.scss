@@ -1,0 +1,82 @@
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/media-query" as media;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/state" as state;
+
+.mish {
+  $mobile: variables.$breakpoint-mobile;
+  $sub-tablet: variables.$breakpoint-sub-tablet;
+
+  position: relative;
+
+  display: block;
+
+  width: 101px;
+  height: 38px;
+
+  transition: transform variables.$transition-base;
+
+  @include typography-presets.reset-link;
+  @include typography-presets.footer-ghost;
+  @include mixins.expand-click-area(
+    variables.$spacing-1,
+    variables.$spacing-3,
+    variables.$spacing-3,
+    variables.$spacing-1
+  );
+
+  // Важно, чтобы не появлялся горизонтальный скролл, но была больше область клика
+  @include media.custom-interval($mobile, $sub-tablet) {
+    @include mixins.expand-click-area(
+      variables.$spacing-1,
+      variables.$spacing-1,
+      variables.$spacing-3,
+      variables.$spacing-1
+    );
+  }
+
+  &::before {
+    border-radius: 5px;
+
+    transition: background-color variables.$transition-base;
+  }
+
+  @include state.hover {
+    &::before {
+      background-color: rgba(variables.$color-white, 0.2);
+    }
+  }
+
+  @include state.focus-visible {
+    outline: none;
+
+    transform: scale(1.05);
+
+    &::before {
+      outline: 2px solid variables.$color-white;
+    }
+  }
+
+  @include state.active {
+    transform: scale(0.99);
+
+    &::before {
+      background-color: rgba(variables.$color-white, 0.1);
+    }
+  }
+}
+
+.mish__text {
+  position: absolute;
+  top: 2px;
+  left: 1px;
+
+  display: block;
+}
+
+.mish__logo {
+  position: absolute;
+  right: -1px;
+  bottom: -2px;
+}

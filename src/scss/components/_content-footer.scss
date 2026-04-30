@@ -1,0 +1,105 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/state" as state;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/media-query" as media;
+
+.content-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+
+  padding-top: 38px;
+  padding-bottom: 40px;
+
+  @include mixins.container;
+
+  @include media.sub-tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include media.sub-desktop {
+    gap: 82px 14px;
+
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.content-footer__logo {
+  display: block;
+  grid-column: 1 / 3;
+
+  width: 267px;
+  height: 59px;
+
+  margin: 0 0 33px;
+
+  .logo__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include media.sub-desktop {
+    grid-column: 1 / 6;
+
+    margin: 7px 0 0;
+  }
+}
+
+.content-footer__navigation {
+  margin: 0 0 82px;
+
+  grid-column: 1 / 3;
+
+  @include media.sub-desktop {
+    grid-column: span 6;
+
+    margin: 0;
+
+    &:not(:last-of-type) {
+      margin: 0;
+    }
+  }
+}
+
+.content-footer__copyright {
+  align-self: end;
+
+  margin: 0;
+
+  @include typography-presets.footer-ghost;
+
+  @include media.ultra-slim-only {
+    grid-column: 1 / 3;
+  }
+
+  @include media.sub-desktop {
+    grid-column: 1 / 9;
+  }
+}
+
+.content-footer__mish {
+  place-self: start end;
+
+  margin: 0 3px 2px 0;
+
+  @include media.ultra-slim-only {
+    grid-column: 1 / 3;
+    justify-self: center;
+
+    margin: variables.$spacing-4 0 0;
+  }
+
+  @include media.custom-interval(
+    variables.$breakpoint-sub-tablet,
+    (variables.$breakpoint-sub-desktop - 1)
+  ) {
+    place-self: end start;
+  }
+
+  @include media.desktop {
+    margin: 0 0 6px;
+  }
+}

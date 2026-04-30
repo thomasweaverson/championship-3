@@ -1,0 +1,258 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/badge" as badge;
+@use "../abstracts/media-query" as media;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/figma-label" as figma;
+@use "../abstracts/mixins" as mixins;
+
+.advantage {
+  position: relative;
+
+  min-height: 600px;
+  margin: 0 auto;
+  padding: variables.$spacing-6;
+
+  color: variables.$color-base;
+
+  background-color: variables.$color-neutral-light;
+  border-radius: 32px;
+  overflow: hidden;
+
+  &--primary {
+    color: variables.$color-white;
+
+    background:
+      url("/assets/images/advantage-figma-background.svg"),
+      radial-gradient(
+        97.9% 241.31% at 0% 3.7%,
+        #002fa8 0%,
+        #001a68 100%
+      );
+
+    background-repeat: no-repeat;
+    background-position: bottom -219px right 34px, center;
+    background-size: 344px 529px, 100% 100%;
+
+    @include media.ultra-slim-only {
+      background-position: bottom -120px right 34px, center;
+      background-size: 241px 370px, 100% 100%;
+    }
+
+    @include media.desktop {
+      background-position: bottom -249px right 38px, center;
+      background-size: 389px 598px, 100% 100%;
+    }
+  }
+
+  &--accent {
+    background-color: variables.$color-accent;
+    background-image:
+      image-set(
+        url("/assets/images/advantage-tutor-background@1x.avif") 1x type("image/avif"),
+        url("/assets/images/advantage-tutor-background@2x.avif") 2x type("image/avif"),
+        url("/assets/images/advantage-tutor-background@1x.webp") 1x type("image/webp"),
+        url("/assets/images/advantage-tutor-background@2x.webp") 2x type("image/webp"),
+        url("/assets/images/advantage-tutor-background@1x.png") 1x type("image/png"),
+        url("/assets/images/advantage-tutor-background@2x.png") 2x type("image/png")
+      );
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    @include media.desktop {
+      background-image:
+        image-set(
+          url("/assets/images/advantage-tutor-background-big@1x.avif") 1x type("image/avif"),
+          url("/assets/images/advantage-tutor-background-big@2x.avif") 2x type("image/avif"),
+          url("/assets/images/advantage-tutor-background-big@1x.webp") 1x type("image/webp"),
+          url("/assets/images/advantage-tutor-background-big@2x.webp") 2x type("image/webp"),
+          url("/assets/images/advantage-tutor-background-big@1x.png") 1x type("image/png"),
+          url("/assets/images/advantage-tutor-background-big@2x.png") 2x type("image/png")
+        );
+    }
+  }
+
+  @include media.desktop {
+    display: flex;
+
+    width: 100%;
+    min-height: 500px;
+    flex-direction: column;
+  }
+}
+
+.advantage__badge {
+  margin-bottom: 12px;
+
+  @include badge.badge($is-primary: false);
+
+  &--primary {
+    @include badge.badge($is-primary: true);
+  }
+
+  @include media.desktop {
+    margin-bottom: 13px;
+  }
+}
+
+.advantage__title {
+  margin: 0 0 14px;
+
+  @include typography-presets.advantage-title;
+
+  &--light {
+    color: variables.$color-white;
+  }
+
+  @include media.desktop {
+    max-width: 300px;
+  }
+}
+
+.advantage__description {
+  max-width: 390px;
+  margin: 0;
+  padding: 0 0 350px;
+
+  font-size: variables.$font-size-s;
+
+  @include mixins.break-word;
+
+  &--light {
+    @include media.tablet {
+      color: rgba(variables.$color-white, 0.7);
+    }
+  }
+
+  &--accent {
+    padding: 0 0 340px;
+
+    @include media.tablet {
+      max-width: 300px;
+
+      color: rgba(variables.$color-base, 0.7);
+    }
+  }
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-xxs,
+      variables.$font-size-s,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+
+  @include media.desktop {
+    max-width: 290px;
+    margin-top: auto;
+    padding: 0;
+  }
+}
+
+.advantage__figma-wrapper {
+  &--lead {
+    right: 240px;
+    bottom: 120px;
+
+    transform: scale(0.89);
+
+    @include figma.figma-label(
+      $name: "UX Lead",
+      $is-accent: false,
+      $min-width: 81px,
+      $font-weight: variables.$font-weight-semi-bold
+    );
+
+    @include media.ultra-slim-only {
+      @include mixins.fluid(
+        right,
+        240px,
+        366px,
+        variables.$breakpoint-ultra-slim,
+        variables.$breakpoint-mobile
+      );
+      @include mixins.fluid(
+        bottom,
+        120px,
+        150px,
+        variables.$breakpoint-ultra-slim,
+        variables.$breakpoint-mobile
+      );
+    }
+
+    @include media.mobile {
+      right: 366px;
+      bottom: 150px;
+    }
+
+    @include media.desktop {
+      right: 415px;
+      bottom: 170px;
+
+      transform: scale(1);
+    }
+  }
+
+  &--you {
+    right: 92px;
+    bottom: 300px;
+
+    transform: scale(0.9);
+
+    @include figma.figma-label(
+      $name: "You",
+      $is-accent: true,
+      $min-width: 61px
+    );
+
+    @include media.ultra-slim-only {
+      @include mixins.fluid(
+        right,
+        92px,
+        174px,
+        variables.$breakpoint-ultra-slim,
+        variables.$breakpoint-mobile
+      );
+      @include mixins.fluid(
+        bottom,
+        300px,
+        351px,
+        variables.$breakpoint-ultra-slim,
+        variables.$breakpoint-mobile
+      );
+    }
+
+    @include media.mobile {
+      right: 174px;
+      bottom: 351px;
+    }
+
+    @include media.desktop {
+      right: 198px;
+      bottom: 398px;
+
+      transform: scale(1);
+    }
+  }
+}
+
+.advantage__wheel {
+  position: absolute;
+  right: -106px;
+  bottom: -57px;
+
+  width: 439px;
+  height: 439px;
+
+  transform: rotate(-30deg);
+  will-change: transform;
+
+  @include media.desktop {
+    right: -91px;
+    bottom: 46px;
+
+    width: 562px;
+    height: 543px;
+  }
+}

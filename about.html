@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Spreent Academy</title>
+    <meta name="description"
+      content="Станьте востребованным дизайнером в Академии Spreent: практические курсы от ведущих экспертов и реальные кейсы в портфолио">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32.png"><!-- 32×32 -->
+    <link rel="apple-touch-icon" href="/favicons/apple.png"><!-- 180×180 -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicons/icon.svg">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <link rel="preload" href="/src/assets/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/loos-wide-500.woff2" as="font" type="font/woff2"
+      crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/manrope-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/manrope-600.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+  </head>
+
+  <body class="page">
+    <header class="page__header header">
+      <div class="header__wrapper">
+        <a class="header__logo logo" href="/">
+          <span class="visually-hidden">Spreent - Academy, на главную</span>
+          <svg class="logo__image" width="127" height="28" viewBox="0 0 127 28" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <use href="/sprite.svg#logo"></use>
+          </svg>
+        </a>
+
+        <nav class="header__navigation navigation" aria-label="Навигация по сайту">
+          <div class="navigation__wrapper navigation__wrapper--block-transition">
+
+            <ul class="navigation__list">
+              <li class="navigation__item">
+                <a class="navigation__link navigation__link--current" href="/about.html"
+                  aria-current="page">Об&nbsp;академии</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__link" href="#">Курсы</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__link" href="#">Корпоративное обучение</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a class="header__button" href="#form">Начать</a>
+        <button class="header__toggler toggler toggler--block-transition" type="button">
+          <span class="visually-hidden">Открыть/закрыть меню</span>
+          <span class="toggler__burger"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page__main main">
+      <section class="main__hero hero">
+        <h1 class="visually-hidden">Об онлайн академии Spreent - образовательная платформа для IT-дизайнеров</h1>
+
+        <div class="hero__container hero__container--background">
+          <div class="hero__content">
+            <p class="hero__promo">—Опыт, практика, <br>актуальные&nbsp;знания</p>
+            <div class="hero__text-content">
+              <p class="hero__description">Главные ценности, вокруг которых строится обучение в&nbsp;spreent</p>
+              <a class="hero__button" href="#form">Начать учиться</a>
+            </div>
+          </div>
+          <div class="hero__animated-background">
+            <ul class="hero__tutors">
+              <li class="hero__tutor hero__tutor--top">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/hero-big-01@1x.avif 1x, /assets/images/hero-big-01@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/hero-01@1x.avif 1x, /assets/images/hero-01@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/hero-big-01@1x.webp 1x, /assets/images/hero-big-01@2x.webp 2x">
+
+                  <source type="image/webp"
+                    srcset="/assets/images/hero-01@1x.webp 1x, /assets/images/hero-01@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/hero-big-01@1x.jpg 1x, /assets/images/hero-big-01@2x.jpg 2x">
+
+                  <img class="hero__tutor-photo" src="/assets/images/hero-01@1x.jpg"
+                    srcset="/assets/images/hero-01@2x.jpg 2x" width="221" height="135" alt="Фото наставника Артура"
+                    fetchpriority="high">
+                </picture>
+                <div class="hero__figma-wrapper hero__figma-wrapper--hand hero__figma-wrapper--animated">
+                  <svg class="hero__figma-cursor " width="26" height="26" viewBox="0 0 26 26" fill="none"
+                    aria-hidden="true">
+                    <use href="/sprite.svg#hand"></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="hero__tutor hero__tutor--left">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/hero-big-02@1x.avif 1x, /assets/images/hero-big-02@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/hero-02@1x.avif 1x, /assets/images/hero-02@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/hero-big-02@1x.webp 1x, /assets/images/hero-big-02@2x.webp 2x">
+
+                  <source type="image/webp"
+                    srcset="/assets/images/hero-02@1x.webp 1x, /assets/images/hero-02@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/hero-big-02@1x.jpg 1x, /assets/images/hero-big-02@2x.jpg 2x">
+
+                  <img class="hero__tutor-photo" src="/assets/images/hero-02@1x.jpg"
+                    srcset="/assets/images/hero-02@2x.jpg 2x" width="117" height="171" alt="Фото наставника Михаила">
+                </picture>
+                <div class="hero__figma-wrapper hero__figma-wrapper--left hero__figma-wrapper--animated">
+                  <svg class="hero__figma-cursor" width="29" height="29" viewBox="0 0 29 29" fill="none"
+                    aria-hidden="true">
+                    <use href="/sprite.svg#pointer"></use>
+                  </svg>
+                </div>
+
+              </li>
+              <li class="hero__tutor hero__tutor--right">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/hero-big-03@1x.avif 1x, /assets/images/hero-big-03@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/hero-03@1x.avif 1x, /assets/images/hero-03@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/hero-big-03@1x.webp 1x, /assets/images/hero-big-03@2x.webp 2x">
+
+                  <source type="image/webp"
+                    srcset="/assets/images/hero-03@1x.webp 1x, /assets/images/hero-03@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/hero-big-03@1x.jpg 1x, /assets/images/hero-big-03@2x.jpg 2x">
+
+                  <img class="hero__tutor-photo" src="/assets/images/hero-03@1x.jpg"
+                    srcset="/assets/images/hero-03@2x.jpg 2x" width="221" height="135" alt="Фото наставника Сергея">
+                </picture>
+                <div class="hero__figma-wrapper hero__figma-wrapper--right hero__figma-wrapper--animated">
+                  <svg class="hero__figma-cursor" width="29" height="29" viewBox="0 0 29 29" fill="none"
+                    aria-hidden="true">
+                    <use href="/sprite.svg#pointer"></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="main__about about">
+        <div class="about__container">
+          <div class="about__hiding-wrapper">
+            <h2 class="about__title about__title--will-reveal-up">Почему выбирают <br>академию spreent</h2>
+          </div>
+          <ul class="about__advantages">
+            <li class="about__advantage">
+              <div class="about__card advantage advantage--primary">
+                <div class="advantage__badge advantage__badge--primary">
+                  Что я получу?
+                </div>
+                <h3 class="advantage__title advantage__title--light">Практические навыки</h3>
+                <p class="advantage__description advantage__description--light">Даем конкретные знания по&nbsp;профессии.
+                  Тренируемся на&nbsp;реальных проектах
+                  <br class="adaptive-break adaptive-break--mobile adaptive-break--desktop">и&nbsp;делаем свой&nbsp;продукт
+                </p>
+                <div class="advantage__figma-wrapper advantage__figma-wrapper--lead">
+                  <svg class="advantage__figma-cursor " width="26" height="26" viewBox="0 0 26 26" fill="none"
+                    aria-hidden="true">
+                    <use href="/sprite.svg#hand"></use>
+                  </svg>
+                </div>
+                <div class="advantage__figma-wrapper advantage__figma-wrapper--you">
+                  <svg class="advantage__figma-cursor " width="26" height="26" viewBox="0 0 26 26" fill="none"
+                    aria-hidden="true">
+                    <use href="/sprite.svg#pointer"></use>
+                  </svg>
+                </div>
+              </div>
+            </li>
+
+            <li class="about__advantage">
+              <div class="about__card advantage advantage--accent">
+                <div class="advantage__badge">
+                  Кто будет учить?
+                </div>
+                <h3 class="advantage__title">Опытные <br>преподаватели</h3>
+                <p class="advantage__description advantage__description--accent">В школе преподают эксперты-практики, которые
+                  прямо сейчас&nbsp;работают в&nbsp;крупных компаниях индустрии
+                </p>
+              </div>
+            </li>
+
+            <li class="about__advantage">
+              <div class="about__card advantage">
+                <div class="advantage__badge">
+                  Что мне дадут?
+                </div>
+                <h3 class="advantage__title">Актуальные знания</h3>
+                <p class="advantage__description">Знаем, какие навыки нужны работодателям. Составляем программы,
+                  ориентируясь на&nbsp;тенденции рынка
+                </p>
+                <svg class="advantage__wheel" width="439" height="439" preserveAspectRatio="none" viewBox="0 0 439 439"
+                  fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="/sprite.svg#wheel"></use>
+                </svg>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="main__community community">
+        <h2 class="visually-hidden">Наши выпускники</h2>
+        <div class="community__container">
+          <div class="community__gallery gallery">
+            <ul class="gallery__list">
+              <li class="gallery__avatar">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/graduate-big-01@1x.avif 1x, /assets/images/graduate-big-01@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/graduate-01@1x.avif 1x, /assets/images/graduate-01@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/graduate-big-01@1x.webp 1x, /assets/images/graduate-big-01@2x.webp 2x">
+
+                  <source type="image/webp"
+                    srcset="/assets/images/graduate-01@1x.webp 1x, /assets/images/graduate-01@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/graduate-big-01@1x.jpg 1x, /assets/images/graduate-big-01@2x.jpg 2x">
+
+                  <img class="gallery__avatar-image" src="/assets/images/graduate-01@1x.jpg"
+                    srcset="/assets/images/graduate-01@2x.jpg 2x" width="90" height="90" alt="Фото выпускника">
+                </picture>
+              </li>
+
+              <li class="gallery__avatar">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/graduate-big-02@1x.avif 1x, /assets/images/graduate-big-02@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/graduate-02@1x.avif 1x, /assets/images/graduate-02@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/graduate-big-02@1x.webp 1x, /assets/images/graduate-big-02@2x.webp 2x">
+
+                  <source type="image/webp"
+                    srcset="/assets/images/graduate-02@1x.webp 1x, /assets/images/graduate-02@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/graduate-big-02@1x.jpg 1x, /assets/images/graduate-big-02@2x.jpg 2x">
+
+                  <img class="gallery__avatar-image" src="/assets/images/graduate-02@1x.jpg"
+                    srcset="/assets/images/graduate-02@2x.jpg 2x" width="90" height="90" alt="Фото выпускника">
+                </picture>
+              </li>
+
+              <li class="gallery__avatar">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/graduate-big-03@1x.avif 1x, /assets/images/graduate-big-03@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/graduate-03@1x.avif 1x, /assets/images/graduate-03@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/graduate-big-03@1x.webp 1x, /assets/images/graduate-big-03@2x.webp 2x">
+
+                  <source type="image/webp"
+                    srcset="/assets/images/graduate-03@1x.webp 1x, /assets/images/graduate-03@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/graduate-big-03@1x.jpg 1x, /assets/images/graduate-big-03@2x.jpg 2x">
+
+                  <img class="gallery__avatar-image" src="/assets/images/graduate-03@1x.jpg"
+                    srcset="/assets/images/graduate-03@2x.jpg 2x" width="90" height="90" alt="Фото выпускника">
+                </picture>
+              </li>
+
+              <li class="gallery__avatar">
+                <picture>
+                  <source media="(min-width: 960px)" type="image/avif"
+                    srcset="/assets/images/graduate-big-04@1x.avif 1x, /assets/images/graduate-big-04@2x.avif 2x">
+                  <source type="image/avif"
+                    srcset="/assets/images/graduate-04@1x.avif 1x, /assets/images/graduate-04@2x.avif 2x">
+
+                  <source media="(min-width: 960px)" type="image/webp"
+                    srcset="/assets/images/graduate-big-04@1x.webp 1x, /assets/images/graduate-big-04@2x.webp 2x">
+                  <source type="image/webp"
+                    srcset="/assets/images/graduate-04@1x.webp 1x, /assets/images/graduate-04@2x.webp 2x">
+
+                  <source media="(min-width: 960px)"
+                    srcset="/assets/images/graduate-big-04@1x.jpg 1x, /assets/images/graduate-big-04@2x.jpg 2x">
+                  <img class="gallery__avatar-image" src="/assets/images/graduate-04@1x.jpg"
+                    srcset="/assets/images/graduate-04@2x.jpg 2x" width="90" height="90" alt="Фото выпускника">
+                </picture>
+              </li>
+            </ul>
+            <a class="gallery__button" href="#form">
+              <span class="visually-hidden">Учиться дизайну, подать заявку</span>
+            </a>
+          </div>
+
+          <div class="community__statistics statistics">
+            <ul class="statistics__list">
+              <li class="statistics__item">
+                <span class="statistics__number statistics__number--accent">Более&nbsp;<span
+                    class="statistics__counter statistics__counter--graduates">100</span></span>
+                <span class="statistics__text">выпускников за все время<br>работы академии</span>
+              </li>
+
+              <li class="statistics__item">
+                <span class="statistics__number">
+                  <span class="statistics__counter statistics__counter--recommendations">78</span>%
+                </span>
+                <span class="statistics__text">готовы рекомендовать академию<br>spreent своим друзьям и коллегам</span>
+              </li>
+
+              <li class="statistics__item">
+                <span class="statistics__number"><span
+                    class="statistics__counter statistics__counter--quality">89</span>%</span>
+                <span class="statistics__text">отмечают качество и пользу<br>знаний, полученных в spreent</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__price price">
+        <div class="price__container">
+          <div class="price__hiding-wrapper">
+            <h2 class="price__title price__title--will-reveal-up">Стоимость обучения</h2>
+          </div>
+          <article class="price__offer offer">
+            <div class="offer__description">
+              <h3 class="offer__title">Базовый план</h3>
+              <ul class="offer__features">
+                <li class="offer__feature">Доступ к материалам навсегда</li>
+                <li class="offer__feature">С обратной связью и д/з</li>
+                <li class="offer__feature">Ревью портфолио и резюме</li>
+                <li class="offer__feature">Начало сразу или с группой</li>
+                <li class="offer__feature">Скидка 24% при полной оплате</li>
+                <li class="offer__feature">Сертификат по окончанию курса</li>
+              </ul>
+            </div>
+            <div class="offer__pricing">
+              <p class="offer__pricing-header">Стоимость</p>
+              <div class="offer__currencies">
+                <p class="offer__value">
+                  <span class="offer__current-price">83 890 ₽</span>
+                  <del class="offer__old-price">110 388 ₽</del>
+                </p>
+                <p class="offer__alternative">или<span class="visually-hidden">в другой валюте:</span></p>
+                <p class="offer__value">
+                  <span class="offer__current-price">419 000 ₸</span>
+                  <del class="offer__old-price">552 000 ₸</del>
+                </p>
+              </div>
+              <a class="offer__button" href="#form">Купить курс</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="main__work work">
+        <div class="work__container">
+          <header class="work__header">
+            <div class="work__hiding-wrapper">
+              <h2 class="work__title work__title--will-reveal-up">Где работают <br>наши выпускники</h2>
+            </div>
+            <div class="work__hiding-wrapper">
+              <p class="work__description work__description--will-reveal-up">Начните работать в крупнейших<br>компаниях
+                индустрии</p>
+            </div>
+
+            <a class="work__button" href="#form">Присоединиться</a>
+
+          </header>
+
+          <ul class="work__employers">
+            <li class="work__employer">
+              <img class="work__employer-logo work__employer-logo--special" src="/assets/images/work-sberbank.svg"
+                alt="Логотип Сбербанка" width="81" height="22">
+            </li>
+            <li class="work__employer">
+              <img class="work__employer-logo work__employer-logo--special" src="/assets/images/work-mts.svg"
+                alt="Логотип МТС" width="29" height="29">
+            </li>
+            <li class="work__employer">
+              <img class="work__employer-logo work__employer-logo--special" src="/assets/images/work-vtb.svg"
+                alt="Логотип ВТБ" width="63" height="23">
+            </li>
+
+            <li class="work__employer">
+              <img class="work__employer-logo" src="/assets/images/work-mish.svg" alt="Логотип Mish" width="52"
+                height="20">
+            </li>
+
+            <li class="work__employer">
+              <img class="work__employer-logo" src="/assets/images/work-chulakov.svg" alt="Логотип Chulakov" width="88"
+                height="10">
+            </li>
+
+            <li class="work__employer">
+              <img class="work__employer-logo" src="/assets/images/work-vc.svg" alt="Логотип VC" width="30" height="28">
+            </li>
+            <li class="work__employer">
+              <img class="work__employer-logo" src="/assets/images/work-epam.svg" alt="Логотип EPAM" width="59"
+                height="19">
+            </li>
+            <li class="work__employer">
+              <img class="work__employer-logo work__employer-logo--long" src="/assets/images/work-sportmaster.svg"
+                alt="Логотип Sportmaster" width="113" height="18">
+            </li>
+            <li class="work__employer">
+              <img class="work__employer-logo work__employer-logo--long" src="/assets/images/work-rustore.svg"
+                alt="Логотип Rustore" width="100" height="26">
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="main__certificate certificate">
+        <div class="certificate__container">
+          <header class="certificate__header">
+            <div class="certificate__hiding-wrapper">
+              <h2 class="certificate__title certificate__title--will-reveal-up">Получи
+                сертификат <br>об&nbsp;успешном <br>завершении курса</h2>
+            </div>
+            <p class="certificate__description">Обучение ведется на основании лицензии <br
+                class="adaptive-break adaptive-break--mobile adaptive-break--tablet adaptive-break--desktop">государственного образца</p>
+            <div class="certificate__hiding-wrapper">
+              <a class="certificate__button certificate__button--will-reveal-up" href="#form">Начать
+                учиться</a>
+            </div>
+          </header>
+          <div class="certificate__image-wrapper certificate__image-wrapper--will-appear">
+            <picture>
+              <source media="(min-width: 960px)" type="image/avif"
+                srcset="/assets/images/certificate-big@1x.avif 660w, /assets/images/certificate-big@2x.avif 1320w"
+                sizes="(min-width: 1440px) 660px, 45vw">
+
+              <source type="image/avif"
+                srcset="/assets/images/certificate@1x.avif 448w, /assets/images/certificate@2x.avif 896w"
+                sizes="(min-width: 480px) 448px, 95vw">
+
+              <source media="(min-width: 960px)" type="image/webp"
+                srcset="/assets/images/certificate-big@1x.webp 660w, /assets/images/certificate-big@2x.webp 1320w"
+                sizes="(min-width: 1440px) 660px, 45vw">
+
+              <source type="image/webp"
+                srcset="/assets/images/certificate@1x.webp 448w, /assets/images/certificate@2x.webp 896w"
+                sizes="(min-width: 480px) 448px, 95vw">
+
+              <source media="(min-width: 960px)"
+                srcset="/assets/images/certificate-big@1x.png 660w, /assets/images/certificate-big@2x.png 1320w"
+                sizes="(min-width: 1440px) 660px, 45vw">
+
+              <img class="certificate__image" src="/assets/images/certificate@1x.png"
+                srcset="/assets/images/certificate@2x.png 896w" sizes="(min-width: 480px) 448px, 95vw" width="660"
+                height="440" loading="lazy" decoding="async"
+                alt="Пример сертификата академии. Дата, печать, всё как полагается">
+            </picture>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="page__footer footer">
+      <section class="footer__form-section">
+        <h2 class="visually-hidden">Форма обратной связи</h2>
+        <form class="footer__form form" id="form" action="https://echo.htmlacademy.ru/" method="post">
+          <div class="form__hiding-wrapper">
+            <h3 class="form__title form__title--will-reveal-up">Сделайте апгрейд карьеры</h3>
+          </div>
+          <div class="form__field input-field">
+            <label class="visually-hidden" for="name">Имя</label>
+            <input class="input-field__input" type="text" id="name" name="name" placeholder="Имя" required minlength="2"
+              maxlength="50" pattern="[A-Za-zА-Яа-я\s\-']+" title="Только буквы, пробелы, дефисы и апострофы"
+              autocomplete="name">
+            <span class="input-field__tag input-field__tag--block-transition">Имя</span>
+          </div>
+
+          <div class="form__field input-field input-field--phone">
+            <label class="visually-hidden" for="phone">Телефон</label>
+            <input class="input-field__input" type="tel" id="phone" name="phone" placeholder="Телефон" required
+              pattern="^[\+]?[0-9\s\-\(\)]{17,20}$" title="Введите номер телефона (10 цифр)" inputmode="tel"
+              autocomplete="tel">
+            <span class="input-field__tag input-field__tag--block-transition">Телефон</span>
+          </div>
+
+          <div class="form__field input-field">
+            <label class="visually-hidden" for="email">Почта</label>
+            <input class="input-field__input" type="email" id="email" name="email" placeholder="Почта" required
+              pattern="^[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Введите верный адрес электронной почты"
+              autocomplete="email">
+            <span class="input-field__tag input-field__tag--block-transition">Почта</span>
+          </div>
+
+          <button class="form__submit" type="submit">
+            Оставить заявку
+          </button>
+
+          <p class="form__note">
+            Нажимая кнопку «Оставить заявку», вы подтверждаете согласие на обработку персональных данных
+          </p>
+        </form>
+      </section>
+
+      <section class="footer__content-section">
+        <h2 class="visually-hidden">Контент в подвале сайта</h2>
+        <div class="footer__content content-footer">
+          <a class="content-footer__logo logo logo--light" href="/">
+            <span class="visually-hidden">Spreent - Academy, на главную</span>
+            <svg class="logo__image" width="127" height="28" viewBox="0 0 127 28" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use href="/sprite.svg#logo"></use>
+            </svg>
+          </a>
+
+          <nav class="content-footer__navigation footer-navigation" aria-label="Навигация в подвале">
+            <ul class="footer-navigation__list">
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link footer-link--current" href="/about.html"
+                  aria-current="page">Об&nbsp;академии</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#form">Корпоративное обучение</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#">Оплата</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#">Личный кабинет</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#form">Связаться с нами</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#">Политика конфиденциальности</a>
+              </li>
+            </ul>
+          </nav>
+
+          <p class="content-footer__copyright">Академия Богдана Гончаренко © 2024</p>
+
+          <a class="content-footer__mish mish" href="https://mish.design/">
+            <span class="mish__text" aria-hidden="true">by</span>
+            <img class="mish__logo" src="/assets/images/logo-mish.svg" width="85" height="30"
+              alt="Product Lab Mish, на сайт студии">
+          </a>
+        </div>
+      </section>
+    </footer>
+    <script type="module" src="/src/js/about.js"></script>
+  </body>
+
+</html>

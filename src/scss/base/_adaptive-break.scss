@@ -1,0 +1,27 @@
+@use "../abstracts/media-query" as media;
+
+.adaptive-break {
+  display: none;
+}
+
+.adaptive-break--mobile {
+  @include media.below-tablet {
+    display: block;
+  }
+}
+
+.adaptive-break--tablet {
+  @include media.tablet {
+    display: block;
+  }
+
+  @include media.desktop {
+    display: none;
+  }
+}
+
+.adaptive-break--desktop {
+  @include media.desktop {
+    display: block;
+  }
+}

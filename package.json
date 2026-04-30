@@ -1,0 +1,53 @@
+{
+  "name": "html-academy-championship-3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "HTML Academy: Championship 3",
+  "author": "Thomas Weaverson",
+  "engines": {
+    "node": "22.x",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not op_mini all",
+    "not and_uc > 0",
+    "not < 0.2%"
+  ],
+  "scripts": {
+    "image-processing": "node scripts/image-processing.js",
+    "image-processing:watch": "node scripts/image-processing.js --watch",
+    "watch:images": "npm run image-processing:watch",
+    "start": "npm run image-processing && npm run dev",
+    "dev": "concurrently --raw --kill-others \"npm run image-processing:watch\" \"vite\"",
+    "build": "npm run image-processing && vite build",
+    "preview": "node scripts/check-dist.js && vite preview",
+    "preview:mpa": "node scripts/check-dist.js && serve dist -l 8080",
+    "lint:css": "stylelint \"src/scss/**/*.scss\" --fix",
+    "lint:js": "eslint src/js --fix --cache",
+    "lint:html": "node scripts/check-dist.js && html-validate dist/**/*.html",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:html",
+    "validate": "npm run lint && npm run build && npm run lint:html",
+    "clean": "rm -rf dist node_modules/.vite"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.27",
+    "chokidar": "5.0.0",
+    "concurrently": "9.2.1",
+    "eslint": "8.57.1",
+    "eslint-config-htmlacademy": "10.0.1",
+    "html-validate": "8.22.0",
+    "prettier": "3.3.3",
+    "sass": "1.77.8",
+    "sharp": "0.34.5",
+    "stylelint": "16.25.0",
+    "stylelint-config-htmlacademy": "4.4.0",
+    "stylelint-order": "6.0.4",
+    "svgo": "4.0.1",
+    "vite": "5.4.11",
+    "vite-plugin-html": "3.2.2",
+    "vite-plugin-svg-spritemap": "1.0.13"
+  }
+}

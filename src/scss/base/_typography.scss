@@ -1,0 +1,56 @@
+@use "../abstracts/variables" as variables;
+
+@font-face {
+  font-family: variables.$font-name-base;
+  font-weight: variables.$font-weight-medium;
+  font-style: normal;
+  font-display: swap;
+
+  src:
+    url("/src/assets/fonts/manrope-500.woff2") format("woff2"),
+    url("/src/assets/fonts/manrope-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: variables.$font-name-base;
+  font-weight: variables.$font-weight-semi-bold;
+  font-style: normal;
+  font-display: swap;
+
+  src:
+    url("/src/assets/fonts/manrope-600.woff2") format("woff2"),
+    url("/src/assets/fonts/manrope-600.woff") format("woff");
+}
+
+@font-face {
+  font-family: variables.$font-name-primary;
+  font-weight: variables.$font-weight-medium;
+  font-style: normal;
+  font-display: swap;
+
+  src:
+    url("/src/assets/fonts/loos-wide-500.woff2") format("woff2"),
+    url("/src/assets/fonts/loos-wide-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: variables.$font-name-secondary;
+  font-weight: variables.$font-weight-medium;
+  font-style: normal;
+  font-display: swap;
+
+  src:
+    url("/src/assets/fonts/inter-500.woff2") format("woff2"),
+    url("/src/assets/fonts/inter-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: variables.$font-name-secondary;
+  font-weight: variables.$font-weight-semi-bold;
+  font-style: normal;
+  font-display: swap;
+
+  src:
+    url("/src/assets/fonts/inter-600.woff2") format("woff2"),
+    url("/src/assets/fonts/inter-600.woff") format("woff");
+}

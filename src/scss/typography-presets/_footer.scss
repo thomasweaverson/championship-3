@@ -1,0 +1,33 @@
+@use "./basic-text-presets" as basic;
+@use "../abstracts/variables" as variables;
+
+@mixin footer-title {
+  @include basic.title-wide(variables.$color-white);
+}
+
+@mixin footer-input {
+  @include basic.text-base(
+    $size: variables.$font-size-s,
+    $is-semi-bold: false,
+    $line-height: variables.$line-height-relaxed,
+    $letter-spacing: variables.$letter-spacing-normal,
+    $color: variables.$color-white
+  );
+}
+
+@mixin footer-ghost {
+  @include basic.sub-text(
+    $is-ghost: true,
+    $color: variables.$color-white
+  );
+}
+
+@mixin footer-regular {
+  @include basic.reset-link;
+  @include basic.text-primary-wide(
+    $size: variables.$font-size-s,
+    $line-height: variables.$line-height-relaxed,
+    $letter-spacing: variables.$letter-spacing-normal,
+    $color: variables.$color-white
+  );
+}

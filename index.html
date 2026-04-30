@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Навигация по проекту</title>
+    <meta name="description" content="Представлены ссылки для изучения и оценки проекта">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32.png"><!-- 32×32 -->
+    <link rel="apple-touch-icon" href="/favicons/apple.png"><!-- 180×180 -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicons/icon.svg">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <link rel="preload" href="/src/assets/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/loos-wide-500.woff2" as="font" type="font/woff2"
+      crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/manrope-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/manrope-600.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  </head>
+
+  <body class="page">
+    <header class="page__header header">
+      <div class="header__wrapper">
+        <a class="header__logo logo" href="/" aria-current="page">
+          <span class="visually-hidden">Spreent - Academy, на главную</span>
+          <svg class="logo__image" width="127" height="28" viewBox="0 0 127 28" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <use href="/sprite.svg#logo"></use>
+          </svg>
+        </a>
+
+        <nav class="header__navigation navigation" aria-label="Навигация по сайту">
+          <div class="navigation__wrapper navigation__wrapper--block-transition">
+
+            <ul class="navigation__list">
+              <li class="navigation__item">
+                <a class="navigation__link" href="/about.html" aria-current="page">Об&nbsp;академии</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__link" href="#">Курсы</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__link" href="#">Корпоративное обучение</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a class="header__button" href="/about.html">Начать</a>
+        <button class="header__toggler toggler toggler--block-transition" type="button">
+          <span class="visually-hidden">Открыть/закрыть меню</span>
+          <span class="toggler__burger"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page__main main">
+      <section class="main__welcome welcome">
+        <h1 class="welcome__title">Чемпионат по верстке&nbsp;#3</h1>
+        <p class="welcome__text">Участник: Ткачев Артем
+          <span class="welcome__copy-wrapper">
+            <span class="welcome__copy"
+              onclick="navigator.clipboard.writeText('id2416991'); this.classList.add('welcome__copy--done'); setTimeout(() => this.classList.remove('welcome__copy--done'), 2000);">
+              (&nbsp;📋&nbsp;id2416991&nbsp;)
+            </span>
+            <span class="welcome__copy-note">скопировано</span>
+          </span>
+        </p>
+        <table class="welcome__map">
+          <caption class="welcome__map-caption">Карта проекта</caption>
+          <thead class="welcome__map-header">
+            <tr>
+              <th class="welcome__map-header-cell" scope="col"></th>
+              <th class="welcome__map-header-cell" scope="col">Страница</th>
+              <th class="welcome__map-header-cell welcome__map-header-cell--description" scope="col">Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="welcome__map-row">
+              <td class="welcome__cell welcome__cell--icon">✨</td>
+              <td class="welcome__cell welcome__cell--link">
+                <a href="/about.html">Основная страница</a>
+              </td>
+              <td class="welcome__cell welcome__cell--description">
+                <b>Полная версия верстки с анимациями</b><br>
+                (./about.html)
+              </td>
+            </tr>
+            <tr class="welcome__map-row">
+              <td class="welcome__cell welcome__cell--icon">📐</td>
+              <td class="welcome__cell welcome__cell--link">
+                <a href="/about-static.html">Pixel Perfect mode </a>
+              </td>
+              <td class="welcome__cell welcome__cell--description">
+                <b>Техническая страница</b><br>
+                Предназначена для точной сверки с макетом Figma.<br>
+                Отключена часть анимации:
+                <ul>
+                  <li>флоатинг в .hero</li>
+                  <li>движение pointer`ов в .hero</li>
+                  <li>параллакс в .about</li>
+                  <li>вращение логотипа в .about</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="welcome__map-row">
+              <td class="welcome__cell welcome__cell--icon">🔍</td>
+              <td class="welcome__cell welcome__cell--link">
+                <a href="/404.html">Страница 404</a>
+              </td>
+              <td class="welcome__cell welcome__cell--description">
+                Шаблон страницы ошибки*
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="welcome__map-footer">
+            <tr>
+              <td colspan="3" class="welcome__note-cell">
+                <b>Примечание:</b> В режиме <code>npm run preview</code> - при неверно введённом адресе
+                <i>Страница&nbsp;404</i> автоматически не подтягивается, так как Vite по умолчанию
+                ориентирован на маршрутизацию в SPA <br>При желании можно запустить <code>npm run preview:mpa</code> -
+                там работает
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+
+    </main>
+    <footer class="page__footer footer footer--tight">
+      <div class="footer__wrapper">
+        <p class="footer__author">
+          @thws 2026
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="/src/js/landing.js"></script>
+  </body>
+</html>

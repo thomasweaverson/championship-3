@@ -1,0 +1,170 @@
+@use "./variables" as variables;
+@use "./media-query" as media;
+@use "sass:math";
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+
+  @return $number;
+}
+
+@function get-unit($value) {
+  @if unitless($value) {
+    @return "";
+  }
+
+  @return unit($value);
+}
+
+// ============================================
+// Плавные переходы значений
+// ============================================
+
+@mixin fluid(
+  $property,
+  $min-size,
+  $max-size,
+  $min-width: variables.$breakpoint-mobile,
+  $max-width: variables.$breakpoint-desktop
+) {
+
+  $unit-min: get-unit($min-size);
+  $unit-max: get-unit($max-size);
+  $unit-min-width: get-unit($min-width);
+  $unit-max-width: get-unit($max-width);
+
+  // Нормализуем значения для математических операций
+  $numeric-min: strip-unit($min-size);
+  $numeric-max: strip-unit($max-size);
+  $numeric-min-width: strip-unit($min-width);
+  $numeric-max-width: strip-unit($max-width);
+
+  // Определяем единицу для итогового значения
+  /* stylelint-disable-next-line annotation-no-unknown */
+  $result-unit: if($unit-min != "", $unit-min, $unit-max);
+
+  // Базовое значение (мобильные устройства)
+  & {
+    #{$property}: $min-size;
+  }
+
+  // Плавное изменение между брейкпоинтами
+  @media (min-width: $min-width) and (max-width: #{$max-width - 1px}) {
+    $difference: $numeric-max - $numeric-min;
+    $viewport-difference: $numeric-max-width - $numeric-min-width;
+
+    // Если значения безразмерные или с разными единицами — используем числа
+    @if $result-unit == "" {
+      #{$property}: calc(#{$numeric-min} + (#{$difference}) * (100vw - #{$numeric-min-width}) / #{$viewport-difference});
+    }
+
+    @else {
+      // Для значений с единицами измерения
+      #{$property}: calc(#{$min-size} + (#{$difference}) * (100vw - #{$min-width}) / #{$viewport-difference});
+    }
+  }
+
+  // Десктопное значение
+  @media (min-width: $max-width) {
+    #{$property}: $max-size;
+  }
+}
+
+// ============================================
+// Центрирование элемента внутри родителя flex
+// ============================================
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ============================================
+// Контейнер
+// ============================================
+
+@mixin container {
+  $max-width: variables.$breakpoint-desktop;
+  $min-padding: variables.$indent-mobile;
+  $max-padding: variables.$indent-desktop;
+  $min-vw: variables.$breakpoint-mobile;
+  $max-vw: variables.$breakpoint-desktop;
+
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+
+  box-sizing: border-box;
+
+  @include fluid(
+    padding-left,
+    $min-padding,
+    $max-padding,
+    $min-vw,
+    $max-vw
+  );
+  @include fluid(
+    padding-right,
+    $min-padding,
+    $max-padding,
+    $min-vw,
+    $max-vw
+  );
+}
+
+// ============================================
+// Увеличить кликабельную область
+// ============================================
+
+@mixin expand-click-area(
+  $top: 5px,
+  $right: 5px,
+  $bottom: 5px,
+  $left: 5px
+) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: (-$top) (-$right) (-$bottom) (-$left);
+
+    background: transparent;
+    pointer-events: auto;
+  }
+}
+
+// ============================================
+// hiding wrapper для reveal-up анимаций
+// ============================================
+
+@mixin hiding-wrapper {
+  overflow: hidden;
+
+  &:focus-within {
+    overflow: visible;
+  }
+}
+
+// ============================================
+// webkit only
+// ============================================
+
+@mixin webkit-only {
+  @supports (background: -webkit-named-image(i)) {
+    @content;
+  }
+}
+
+// ============================================
+// break-word
+// ============================================
+
+@mixin break-word {
+  word-break: break-word;
+  word-wrap: break-word;
+}

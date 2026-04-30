@@ -1,0 +1,61 @@
+@use "./variables" as variables;
+
+@mixin ultra-slim-only {
+  @media (max-width: (variables.$breakpoint-mobile - 1px)) {
+    @content;
+  }
+}
+
+@mixin ultra-slim {
+  @media (min-width: variables.$breakpoint-ultra-slim) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: variables.$breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin sub-tablet {
+  @media (min-width: variables.$breakpoint-sub-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: variables.$breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin below-tablet {
+  @media (max-width: (variables.$breakpoint-tablet - 1px)) {
+    @content;
+  }
+}
+
+@mixin sub-desktop {
+  @media (min-width: variables.$breakpoint-sub-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: variables.$breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin over-desktop {
+  @media (min-width: (variables.$breakpoint-desktop + 1px)) {
+    @content;
+  }
+}
+
+@mixin custom-interval($min-width, $max-width) {
+  @media (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}

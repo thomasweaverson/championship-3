@@ -1,0 +1,123 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/state" as state;
+
+@mixin button-reset {
+  padding: 0;
+  text-decoration: none;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+@mixin button-shadow-hover($is-accent: false) {
+  $color: if($is-accent, variables.$color-accent, variables.$color-primary);
+  box-shadow:
+    rgba($color, 0.4) 0 3px,
+    rgba($color, 0.3) 0 6px,
+    rgba($color, 0.2) 0 9px,
+    rgba($color, 0.1) 0 12px,
+    rgba($color, 0.05) 0 15px;
+}
+
+@mixin button-shadow-active($is-accent: false) {
+  $color: if($is-accent, variables.$color-accent, variables.$color-primary);
+  box-shadow:
+    rgba($color, 0.4) 0 1px,
+    rgba($color, 0.3) 0 2px,
+    rgba($color, 0.2) 0 3px,
+    rgba($color, 0.1) 0 4px,
+    rgba($color, 0.05) 0 5px;
+}
+
+@mixin button-shadow-focus-visible($is-accent: false) {
+  $color: if($is-accent, variables.$color-accent-strong, variables.$color-primary-strong);
+  box-shadow:
+    0 0 2px 2px $color,
+    0 0 4px 4px rgba($color, 0.6);
+}
+
+@mixin button($is-tight: false, $is-accent: false) {
+  $padding: null;
+  $text-color: null;
+  $main-color: null;
+  $min-height: null;
+
+  @if $is-tight {
+    $padding: variables.$spacing-1 variables.$spacing-3 6px;
+    $min-height: 36px;
+  }
+
+  @else {
+    $padding: 14px variables.$spacing-5 variables.$spacing-3;
+    $min-height: 55px;
+  }
+
+  @if $is-accent {
+    $text-color: variables.$color-base;
+    $main-color: variables.$color-accent;
+  }
+
+  @else {
+    $text-color: variables.$color-white;
+    $main-color: variables.$color-primary;
+  }
+
+  @include button-reset;
+  display: block;
+
+  width: fit-content;
+  max-width: 220px;
+  min-height: $min-height;
+  padding: $padding;
+
+  font-family: variables.$font-family-primary;
+  font-size: variables.$font-size-s;
+  font-weight: variables.$font-weight-medium;
+  line-height: variables.$line-height-relaxed;
+  text-align: center;
+  color: $text-color;
+
+  background-color: $main-color;
+  border-radius: 50px;
+
+  transition:
+    box-shadow variables.$transition-base,
+    right variables.$transition-fast,
+    transform variables.$transition-fast,
+    opacity variables.$transition-fast;
+  will-change: transform;
+
+  @include mixins.break-word;
+
+  @include state.hover {
+    transform: translateY(0);
+
+    @include button-shadow-hover($is-accent);
+  }
+
+  @include state.focus-visible {
+    outline: none;
+
+    transform: translateY(0) scale(variables.$scale-on-focus);
+
+    @include button-shadow-focus-visible($is-accent);
+  }
+
+  @include state.active {
+    transform: translateY(1px);
+
+    @include button-shadow-active($is-accent);
+  }
+
+  @include state.touch-active {
+    opacity: 0.7;
+  }
+
+  @include state.disabled {
+    background-color: variables.$color-disabled;
+    pointer-events: none;
+  }
+}

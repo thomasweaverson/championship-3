@@ -1,0 +1,39 @@
+@use "./variables" as variables;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/mixins" as mixins;
+
+@mixin badge($is-primary:false) {
+  $color:
+    if(
+      $is-primary,
+      variables.$color-white,
+      variables.$color-base
+    );
+
+  $fallback-background: if(
+    $is-primary,
+    rgba(variables.$color-white, 0.4), // Увеличили непрозрачность
+    rgba(variables.$color-primary-medium, 0.15)
+  );
+
+  $modern-background: if(
+    $is-primary,
+    rgba(variables.$color-white, 0.2),
+    rgba(variables.$color-primary-medium, 0.06)
+  );
+
+  width: fit-content;
+
+  padding: 7px 17px;
+
+  background-color: $fallback-background;
+
+  border-radius: variables.$spacing-10;
+
+  @include typography-presets.advantage-label($color);
+
+  @supports (backdrop-filter: blur(30px)) {
+    background-color: $modern-background;
+    backdrop-filter: blur(30px);
+  }
+}

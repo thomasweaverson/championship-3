@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Навигация по проекту</title>
+    <meta name="description" content="Представлены ссылки для изучения и оценки проекта">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/32.png"><!-- 32×32 -->
+    <link rel="apple-touch-icon" href="/favicons/apple.png"><!-- 180×180 -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicons/icon.svg">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <link rel="preload" href="/src/assets/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/loos-wide-500.woff2" as="font" type="font/woff2"
+      crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/manrope-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/src/assets/fonts/manrope-600.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  </head>
+
+  <body class="page">
+    <header class="page__header header">
+      <div class="header__wrapper">
+        <a class="header__logo logo" href="/" aria-current="page">
+          <span class="visually-hidden">Spreent - Academy, на главную</span>
+          <svg class="logo__image" width="127" height="28" viewBox="0 0 127 28" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <use href="/sprite.svg#logo"></use>
+          </svg>
+        </a>
+
+        <nav class="header__navigation navigation" aria-label="Навигация по сайту">
+          <div class="navigation__wrapper navigation__wrapper--block-transition">
+
+            <ul class="navigation__list">
+              <li class="navigation__item">
+                <a class="navigation__link" href="/about.html" aria-current="page">Об&nbsp;академии</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__link" href="#">Курсы</a>
+              </li>
+              <li class="navigation__item">
+                <a class="navigation__link" href="#">Корпоративное обучение</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a class="header__button" href="/about.html">Начать</a>
+        <button class="header__toggler toggler toggler--block-transition" type="button">
+          <span class="visually-hidden">Открыть/закрыть меню</span>
+          <span class="toggler__burger"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page__main main">
+      <section class="main__not-found not-found">
+        <div class="not-found__container">
+          <h1 class="not-found__title">Куда делась страница?</h1>
+          <a class="not-found__back-button" href="/">На&nbsp;главную</a>
+          <div class="not-found__image-container">
+            <picture>
+              <source srcset="/assets/404/travolta.webp" type="image/webp">
+              <img src="/assets/404/travolta.png" width="430" height="480" alt="where is page? Mem with Travolta"
+                loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </div>
+        <div class="not-found__flying-pointers">
+          <div class="not-found__flying-pointer">
+            <svg class="not-found__figma-cursor " width="26" height="26" viewBox="0 0 26 26" fill="none"
+              aria-hidden="true">
+              <use href="/sprite.svg#hand"></use>
+            </svg>
+          </div>
+          <div class="not-found__flying-pointer not-found__flying-pointer--left">
+            <svg class="not-found__figma-cursor" width="29" height="29" viewBox="0 0 29 29" fill="none"
+              aria-hidden="true">
+              <use href="/sprite.svg#pointer"></use>
+            </svg>
+          </div>
+          <div class="not-found__flying-pointer not-found__flying-pointer--right">
+            <svg class="not-found__figma-cursor" width="29" height="29" viewBox="0 0 29 29" fill="none"
+              aria-hidden="true">
+              <use href="/sprite.svg#pointer"></use>
+            </svg>
+          </div>
+          <div class="not-found__flying-pointer not-found__flying-pointer--lead">
+            <svg class="not-found__figma-cursor " width="26" height="26" viewBox="0 0 26 26" fill="none"
+              aria-hidden="true">
+              <use href="/sprite.svg#hand"></use>
+            </svg>
+          </div>
+          <div class="not-found__flying-pointer not-found__flying-pointer--you">
+            <svg class="not-found__figma-cursor " width="26" height="26" viewBox="0 0 26 26" fill="none"
+              aria-hidden="true">
+              <use href="/sprite.svg#pointer"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="page__footer footer footer--tight">
+      <section class="footer__form-section">
+        <h2 class="visually-hidden">Форма обратной связи</h2>
+        <form class="footer__form form" id="form" action="https://echo.htmlacademy.ru/" method="post">
+          <div class="form__hiding-wrapper">
+            <h3 class="form__title">Сделайте апгрейд карьеры</h3>
+          </div>
+          <div class="form__field input-field">
+            <label class="visually-hidden" for="name">Имя</label>
+            <input class="input-field__input" type="text" id="name" name="name" placeholder="Имя" required minlength="2"
+              maxlength="50" pattern="[A-Za-zА-Яа-я\s\-']+" title="Только буквы, пробелы, дефисы и апострофы"
+              autocomplete="name">
+            <span class="input-field__tag input-field__tag--block-transition">Имя</span>
+          </div>
+
+          <div class="form__field input-field input-field--phone">
+            <label class="visually-hidden" for="phone">Телефон</label>
+            <input class="input-field__input" type="tel" id="phone" name="phone" placeholder="Телефон" required
+              pattern="^[\+]?[0-9\s\-\(\)]{17,20}$" title="Введите номер телефона (10 цифр)" inputmode="tel"
+              autocomplete="tel">
+            <span class="input-field__tag input-field__tag--block-transition">Телефон</span>
+          </div>
+
+          <div class="form__field input-field">
+            <label class="visually-hidden" for="email">Почта</label>
+            <input class="input-field__input" type="email" id="email" name="email" placeholder="Почта" required
+              pattern="^[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Введите верный адрес электронной почты"
+              autocomplete="email">
+            <span class="input-field__tag input-field__tag--block-transition">Почта</span>
+          </div>
+
+          <button class="form__submit" type="submit">
+            Оставить заявку
+          </button>
+
+          <p class="form__note">
+            Нажимая кнопку «Оставить заявку», вы подтверждаете согласие на обработку персональных данных
+          </p>
+        </form>
+      </section>
+
+      <section class="footer__content-section">
+        <h2 class="visually-hidden">Контент в подвале сайта</h2>
+        <div class="footer__content content-footer">
+          <a class="content-footer__logo logo logo--light" href="/">
+            <span class="visually-hidden">Spreent - Academy, на главную</span>
+            <svg class="logo__image" width="127" height="28" viewBox="0 0 127 28" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use href="/sprite.svg#logo"></use>
+            </svg>
+          </a>
+
+          <nav class="content-footer__navigation footer-navigation" aria-label="Навигация в подвале">
+            <ul class="footer-navigation__list">
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="/about.html">Об&nbsp;академии</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#form">Корпоративное обучение</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#">Оплата</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#">Личный кабинет</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#form">Связаться с нами</a>
+              </li>
+              <li class="footer-navigation__item">
+                <a class="footer-navigation__link footer-link" href="#">Политика конфиденциальности</a>
+              </li>
+            </ul>
+          </nav>
+
+          <p class="content-footer__copyright">Академия Богдана Гончаренко © 2024</p>
+
+          <a class="content-footer__mish mish" href="https://mish.design/">
+            <span class="mish__text" aria-hidden="true">by</span>
+            <img class="mish__logo" src="/assets/images/logo-mish.svg" width="85" height="30"
+              alt="Product Lab Mish, на сайт студии">
+          </a>
+        </div>
+      </section>
+    </footer>
+    <script type="module" src="/src/js/not-found.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,16 @@
+@use "./basic-text-presets" as basic;
+
+@mixin about-title {
+  @include basic.title-wide;
+}
+
+@mixin advantage-label($color: variables.$color-base) {
+  @include basic.sub-text(
+    $is-ghost: false,
+    $color: $color
+  );
+}
+
+@mixin advantage-title {
+  @include basic.sub-title-wide;
+}

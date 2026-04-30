@@ -1,0 +1,46 @@
+<svg width="389" height="599" viewBox="0 0 389 599" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="3.14713e-05" y="-42" width="480.888" height="640.888"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(50px);clip-path:url(#bgblur_0_11024_1336_clip_path);height:100%;width:100%"></div></foreignObject><g opacity="0.13" filter="url(#filter0_d_11024_1336)" data-figma-bg-blur-radius="100">
+<rect x="134.888" y="58" width="246" height="406" rx="50" fill="url(#paint0_radial_11024_1336)"/>
+</g>
+<rect x="134.388" y="57.5" width="247" height="344" stroke="#1859FF"/>
+<rect x="127.388" y="50.5" width="15" height="15" fill="white" stroke="#1859FF"/>
+<rect x="373.388" y="50.5" width="15" height="15" fill="white" stroke="#1859FF"/>
+<g filter="url(#filter1_d_11024_1336)">
+<circle cx="139.388" cy="66.5" r="58.5" fill="#D1DEFF"/>
+<circle cx="139.388" cy="66.5" r="58" stroke="#1859FF"/>
+</g>
+<rect x="80.3882" y="7.5" width="118" height="118" stroke="#1859FF"/>
+<rect x="73.3882" y="0.5" width="15" height="15" fill="white" stroke="#1859FF"/>
+<rect x="73.3882" y="117.5" width="15" height="15" fill="white" stroke="#1859FF"/>
+<rect x="190.388" y="117.5" width="15" height="15" fill="white" stroke="#1859FF"/>
+<rect x="190.388" y="0.5" width="15" height="15" fill="white" stroke="#1859FF"/>
+<defs>
+<filter id="filter0_d_11024_1336" x="3.14713e-05" y="-42" width="480.888" height="640.888" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="13.4888" operator="erode" in="SourceAlpha" result="effect1_dropShadow_11024_1336"/>
+<feOffset dx="-67.4441" dy="67.4441"/>
+<feGaussianBlur stdDeviation="40.4664"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0122179 0 0 0 0 0.0519824 0 0 0 0 0.154234 0 0 0 0.3 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11024_1336"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11024_1336" result="shape"/>
+</filter>
+<clipPath id="bgblur_0_11024_1336_clip_path" transform="translate(-3.14713e-05 42)"><rect x="134.888" y="58" width="246" height="406" rx="50"/>
+</clipPath><filter id="filter1_d_11024_1336" x="80.8841" y="8" width="251.888" height="251.888" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="13.4888" operator="erode" in="SourceAlpha" result="effect1_dropShadow_11024_1336"/>
+<feOffset dx="67.44" dy="67.4441"/>
+<feGaussianBlur stdDeviation="40.4664"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.115141 0 0 0 0 0.265285 0 0 0 0 0.651371 0 0 0 0.8 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11024_1336"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11024_1336" result="shape"/>
+</filter>
+<radialGradient id="paint0_radial_11024_1336" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(218.388 143) rotate(56.7125) scale(296.079 296.079)">
+<stop stop-color="#ECF1FE"/>
+<stop offset="1" stop-color="#B1C6E7"/>
+</radialGradient>
+</defs>
+</svg>

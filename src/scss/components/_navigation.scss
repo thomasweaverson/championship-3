@@ -1,0 +1,230 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/keyframes" as keyframes;
+@use "../abstracts/media-query" as media;
+@use "../abstracts/state" as state;
+@use "../typography-presets" as typography-presets;
+
+.navigation__wrapper {
+  text-align: right;
+
+  transition: transform variables.$transition-base;
+
+  &--close {
+    position: absolute;
+
+    width: 100%;
+    padding-top: (variables.$header-min-height + variables.$spacing-5);
+    padding-bottom: 31px;
+
+    transform: translateY(-100%);
+  }
+
+  &--open {
+    padding-top: (variables.$header-min-height + variables.$spacing-5);
+    padding-bottom: 31px;
+
+    background-color: variables.$color-white;
+  }
+
+  &--block-transition {
+    transition: none;
+  }
+}
+
+.navigation__list {
+  display: inline-flex;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: left;
+  list-style: none;
+  flex-wrap: wrap;
+
+  &--slide-up {
+    // стили для анимации сокрытия меню
+    // при resize вниз через breakpoint tablet
+    // в основном чтобы держало одну строку в момент анимации
+    flex-wrap: nowrap;
+    will-change: transform, opacity;
+
+    @include keyframes.slide-up();
+
+    & .navigation__link {
+      word-break: keep-all;
+      word-wrap: normal;
+      white-space: nowrap;
+    }
+  }
+
+  &--open {
+    display: flex;
+    gap: 0;
+
+    font-size: variables.$font-size-l;
+    flex-direction: column;
+  }
+
+  &--close {
+    display: flex;
+    gap: 0;
+
+    font-size: variables.$font-size-l;
+    flex-direction: column;
+  }
+}
+
+.navigation__link {
+  position: relative;
+
+  display: block;
+
+  width: fit-content;
+  min-width: 50%;
+  padding: 22px variables.$spacing-2;
+
+  color: variables.$color-base;
+
+  transition:
+    background-color variables.$transition-base,
+    color variables.$transition-base;
+
+  @include typography-presets.navigation-link;
+
+  @include media.below-tablet {
+    padding: 6px variables.$spacing-2 variables.$spacing-1;
+
+    line-height: variables.$line-height-loose;
+
+    transition:
+      font-size variables.$transition-slow,
+      color variables.$transition-fast;
+
+    @include mixins.fluid(
+      padding-left,
+      variables.$indent-mobile,
+      variables.$indent-tablet,
+      variables.$breakpoint-mobile,
+      variables.$breakpoint-tablet
+    );
+    @include mixins.fluid(
+      padding-right,
+      variables.$indent-mobile,
+      variables.$indent-tablet,
+      variables.$breakpoint-mobile,
+      variables.$breakpoint-tablet
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: variables.$spacing-2;
+
+    width: calc(100% - variables.$spacing-4);
+    height: 3px;
+
+    background:
+      linear-gradient(
+        to left,
+        variables.$color-primary-strong,
+        variables.$color-primary-light
+      );
+    border-radius: 2px;
+
+    transition: transform variables.$transition-base;
+    transform: scaleX(0);
+    transform-origin: right;
+
+    @include media.below-tablet {
+      content: none;
+    }
+  }
+
+  @include state.hover {
+    &:not(.navigation__link--current) {
+      @include media.below-tablet {
+        color: variables.$color-primary;
+      }
+
+      @include media.tablet {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  @include state.focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: variables.$color-primary;
+    text-underline-offset: variables.$spacing-2;
+    outline: none;
+
+    color: variables.$color-primary;
+
+    &:not(.navigation__link--current)::after {
+      content: none;
+    }
+
+    @include media.tablet {
+      text-decoration: none;
+
+      color: variables.$color-base;
+
+      outline: 2px solid variables.$color-primary;
+      outline-offset: -6px;
+
+      border-radius: 12px;
+    }
+  }
+
+  @include state.active {
+    color: rgba(variables.$color-primary, 0.6);
+
+    @include media.tablet {
+      color: rgba(variables.$color-base, 0.6);
+
+      background-color: rgba(variables.$color-primary-light, 0.2);
+    }
+  }
+
+  @include state.disabled {
+    color: variables.$color-disabled;
+
+    outline: none;
+  }
+
+  &--current {
+    cursor: default;
+
+    @include media.below-tablet {
+      color: variables.$color-primary-medium;
+    }
+
+    @include media.tablet {
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 18px;
+        left: variables.$spacing-2;
+
+        width: calc(100% - variables.$spacing-4);
+        height: 3px;
+
+        background:
+          linear-gradient(
+            to left,
+            variables.$color-primary-strong,
+            variables.$color-primary-light
+          );
+        border-radius: 2px;
+
+        transform: scaleX(1);
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "./basic-text-presets" as basic;
+@use "../abstracts/variables" as variables;
+
+@mixin offer-title {
+  @include basic.sub-title-wide;
+}
+
+@mixin offer-price($is-old: false) {
+  $opacity: if($is-old, 0.4, 1);
+  text-decoration:
+    if(
+      $is-old,
+      line-through,
+      none
+    );
+  text-decoration-thickness: 2px;
+
+  opacity: $opacity;
+
+  @include basic.text-primary-wide (
+    $size: variables.$font-size-xl,
+    $line-height: variables.$line-height-snug,
+    $letter-spacing: variables.$letter-spacing-normal,
+    $color: variables.$color-base
+  );
+}

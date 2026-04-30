@@ -1,0 +1,9 @@
+@use "../abstracts/variables" as variables;
+
+@mixin figma-label-text($font-weight: variables.$font-weight-medium) {
+  font-family: variables.$font-family-secondary;
+  font-size: variables.$font-size-xs;
+  font-weight: $font-weight;
+  line-height: variables.$line-height-loose;
+  text-align: center;
+}

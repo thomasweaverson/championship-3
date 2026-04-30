@@ -1,0 +1,16 @@
+@use "../abstracts/media-query" as media;
+
+.footer-navigation__list {
+  min-height: 120px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include media.sub-tablet {
+    column-count: 2;
+  }
+}
+
+.footer-navigation__item {
+  break-inside: avoid;
+}

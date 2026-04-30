@@ -1,0 +1,56 @@
+@use "./basic-text-presets" as basic;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/media-query" as media;
+
+@mixin certificate-title-wide {
+  @include basic.text-primary-wide(
+    $size: variables.$font-size-2xl,
+    $line-height: variables.$line-height-tight,
+    $letter-spacing: variables.$letter-spacing-tight,
+    $color: variables.$color-base
+  );
+  @include mixins.fluid(
+    font-size,
+    variables.$font-size-2xl,
+    variables.$font-size-4xl
+  );
+
+  @include media.ultra-slim-only {
+    font-size: variables.$font-size-m;
+
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-m,
+      variables.$font-size-2xl,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+
+  @include media.desktop {
+    line-height: variables.$line-height-solid;
+    letter-spacing: variables.$letter-spacing-normal;
+  }
+}
+
+@mixin certificate-text {
+  @include basic.text-base(
+    $size: variables.$font-size-s,
+    $is-semi-bold: false,
+    $line-height: variables.$line-height-relaxed,
+    $letter-spacing: variables.$letter-spacing-normal,
+    $color: variables.$color-base,
+    $color-opacity: 0.7
+  );
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-xxs,
+      variables.$font-size-s,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}

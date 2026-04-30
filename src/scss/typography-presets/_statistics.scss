@@ -1,0 +1,51 @@
+@use "./basic-text-presets" as basic;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/media-query" as media;
+
+@mixin statistics-numbers($is-main: false) {
+  @include basic.text-primary-wide (
+    $size: variables.$font-size-6xl,
+    $line-height: variables.$line-height-solid,
+    $letter-spacing: variables.$letter-spacing-ultra-tight,
+    $color: variables.$color-base
+  );
+
+  @if $is-main {
+    font-size: variables.$font-size-6xl;
+
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-6xl,
+      variables.$font-size-7xl,
+      variables.$breakpoint-sub-tablet,
+      variables.$breakpoint-desktop
+    );
+  }
+
+  @else {
+    line-height: variables.$line-height-solid;
+
+    @include media.tablet {
+      line-height: variables.$line-height-ultra-tight;
+    }
+
+    @include mixins.fluid(
+      letter-spacing,
+      variables.$letter-spacing-ultra-tight,
+      variables.$letter-spacing-normal
+    );
+  }
+
+  @include media.ultra-slim-only {
+    font-size: variables.$font-size-4xl;
+
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-4xl,
+      variables.$font-size-6xl,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}

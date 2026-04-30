@@ -1,0 +1,42 @@
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:not(:disabled):not(.disabled):hover {
+      @content;
+    }
+  }
+}
+
+@mixin focus-visible {
+  &:not(:disabled):not(.disabled):focus-visible {
+    @content;
+  }
+}
+
+@mixin active {
+  &:not(:disabled):not(.disabled):active {
+    @content;
+  }
+}
+
+@mixin touch-active {
+  @media (hover: none), (pointer: coarse) {
+    &:not(:disabled):not(.disabled):active {
+      @content;
+    }
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    cursor: default;
+    @content;
+  }
+}
+
+@mixin invalid {
+  &:not(:disabled):not(.disabled):not(:placeholder-shown):invalid {
+    @content;
+  }
+}

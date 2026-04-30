@@ -1,0 +1,35 @@
+@use "../abstracts/mixins" as mixins;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/variables" as variables;
+
+.price {
+  min-height: variables.$price-min-height;
+}
+
+.price__container {
+  min-height: variables.$price-min-height;
+  padding: 50px 0;
+
+  @include mixins.container;
+}
+
+.price__hiding-wrapper {
+  @include mixins.hiding-wrapper;
+}
+
+.price__title {
+  margin: 0;
+
+  @include typography-presets.price-title;
+  @include mixins.fluid(
+    margin-bottom,
+    variables.$spacing-6,
+    variables.$spacing-10
+  );
+
+  &--will-reveal-up {
+    transform: translateY(variables.$reveal-translating);
+    will-change: transform;
+  }
+}
+

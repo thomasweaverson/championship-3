@@ -1,0 +1,99 @@
+{
+  "extends": [
+    "stylelint-config-htmlacademy"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-order": [
+      {
+        "emptyLineBefore": "never",
+        "properties": [
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "z-index"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "display",
+          "flex",
+          "flex-grow",
+          "flex-shrink",
+          "flex-basis",
+          "justify-content",
+          "align-items",
+          "align-self",
+          "gap",
+          "grid",
+          "grid-template-columns",
+          "grid-template-rows"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "width",
+          "min-width",
+          "max-width",
+          "height",
+          "min-height",
+          "max-height",
+          "margin",
+          "margin-top",
+          "margin-right",
+          "margin-bottom",
+          "margin-left",
+          "padding",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "padding-left"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "font-family",
+          "font-size",
+          "font-weight",
+          "line-height",
+          "text-align",
+          "letter-spacing",
+          "color"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "background",
+          "background-color",
+          "background-image",
+          "border",
+          "border-radius",
+          "box-shadow",
+          "opacity"
+        ]
+      },
+      {
+        "emptyLineBefore": "always",
+        "properties": [
+          "transition",
+          "transform",
+          "animation"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "function-no-unknown": null
+  }
+}

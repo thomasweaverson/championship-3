@@ -1,0 +1,35 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/media-query" as media;
+@use "./basic-text-presets" as basic;
+
+@mixin navigation-link {
+  @include basic.reset-link;
+  font-family: variables.$font-family-primary;
+  font-size: inherit;
+  font-weight: variables.$font-weight-medium;
+  line-height: variables.$line-height-solid;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  @include media.ultra-slim-only {
+    word-break: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+
+    font-size: variables.$font-size-m;
+
+    @include mixins.fluid(
+      font-size,
+      variables.$font-size-m,
+      variables.$font-size-l,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+
+  @include media.tablet {
+    font-size: variables.$font-size-s;
+    line-height: variables.$line-height-relaxed;
+  }
+}

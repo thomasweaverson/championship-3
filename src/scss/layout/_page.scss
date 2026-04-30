@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as variables;
+
+.page {
+  display: flex;
+
+  min-width: variables.$breakpoint-ultra-slim;
+
+  min-height: 100dvh;
+
+  font-family: variables.$font-family-base;
+  font-size: variables.$font-size-s;
+  font-weight: variables.$font-weight-medium;
+  line-height: variables.$line-height-relaxed;
+  color: variables.$color-base;
+
+  background-color: variables.$color-white;
+  flex-direction: column;
+  -webkit-tap-highlight-color: transparent;
+
+  &--scroll-lock {
+    overflow: hidden;
+
+    padding-right: var(--scrollbar-width, 0);
+  }
+}
+
+.page__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: variables.$z-index-fixed;
+}
+
+.page__main {
+  flex: 1 0 auto;
+  /* stylelint-disable-next-line no-unknown-custom-properties */
+  padding: var(--header-height) 0 0;
+
+  background-color: variables.$color-white;
+}
+

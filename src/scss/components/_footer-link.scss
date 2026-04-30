@@ -1,0 +1,79 @@
+@use "../abstracts/mixins" as mixins;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/state" as state;
+
+.footer-link {
+  position: relative;
+
+  display: block;
+
+  width: fit-content;
+
+  padding: 7px 0 8px;
+
+  transition: color variables.$transition-base;
+
+  @include typography-presets.footer-regular;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+      linear-gradient(
+        to left,
+        variables.$color-accent,
+        variables.$color-white
+      );
+    border-radius: 2px;
+
+    transition: transform variables.$transition-base;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  @include state.hover {
+    &:not(.footer-link--current) {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  @include state.focus-visible {
+    outline: 2px solid variables.$color-white;
+    outline-offset: 5px;
+
+    border-radius: 2px;
+
+    &::after {
+      content: none;
+    }
+
+    @include mixins.webkit-only {
+      outline: none;
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+    }
+  }
+
+  @include state.active {
+    &:not(.footer-link--current) {
+      color: rgba(variables.$color-white, 0.6);
+    }
+  }
+
+  @include state.disabled {
+    color: rgba(variables.$color-disabled, 0.2);
+  }
+
+  &--current {
+    cursor: default;
+  }
+}

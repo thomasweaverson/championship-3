@@ -1,0 +1,64 @@
+@use "variables" as variables;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/mixins" as mixins;
+
+@mixin figma-label(
+  $name: "Константин",
+  $is-accent: false,
+  $min-width: variables.$spacing-9,
+  $font-weight: variables.$font-weight-medium
+) {
+
+  $color:
+    if(
+      $is-accent,
+      variables.$color-accent,
+      variables.$color-primary
+    );
+
+  $text-color:
+    if(
+      $is-accent,
+      variables.$color-base,
+      variables.$color-white
+    );
+
+  $padding-block:
+    if(
+      $is-accent,
+      8px,
+      2px
+    );
+
+  $padding-inline:
+    if(
+      $is-accent,
+      16px,
+      7px
+    );
+
+  position: absolute;
+
+  color: $color;
+
+  &::after {
+    content: $name;
+    position: absolute;
+    top: 26px;
+    left: 26px;
+
+    display: block;
+
+    min-width: $min-width;
+
+    padding: $padding-block $padding-inline;
+
+    color: $text-color;
+
+    background-color: $color;
+
+    @include typography-presets.figma-label-text(
+      $font-weight: $font-weight
+    );
+  }
+}

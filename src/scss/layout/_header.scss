@@ -1,0 +1,199 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/button" as button-mixin;
+@use "../abstracts/media-query" as media;
+
+.header {
+  width: 100%;
+  min-height: variables.$header-min-height;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: variables.$z-index-backdrop;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: variables.$color-white;
+
+    @supports (backdrop-filter: blur(variables.$header-backdrop-blur)) {
+      background-color: rgba(variables.$color-white, 0.7);
+
+      backdrop-filter: blur(variables.$header-backdrop-blur);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    // Добавлена ширина для работы при body-scroll-lock
+    width: calc(100% + variables.$indent-desktop);
+    height: 1px;
+
+    background-color: variables.$color-base-ghost;
+  }
+}
+
+.header__wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  width: 100%;
+
+  min-height: variables.$header-min-height;
+
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @include mixins.fluid(
+    padding-right,
+    175px,
+    230px,
+    variables.$breakpoint-ultra-slim,
+    variables.$breakpoint-tablet
+  );
+  @include mixins.fluid(
+    padding-left,
+    110px,
+    200px,
+    variables.$breakpoint-ultra-slim,
+    variables.$breakpoint-tablet
+  );
+
+  @include media.tablet {
+    position: relative;
+  }
+
+  @include media.desktop {
+    max-width: variables.$page-container-max-width;
+    padding: 0 189px 0 150px;
+  }
+}
+
+.header__logo {
+  position: absolute;
+  top: calc(variables.$header-min-height / 2 + variables.$header-border-thickness);
+
+  z-index: variables.$z-index-basic;
+
+  display: block;
+
+  height: variables.$header-logo-height;
+
+  line-height: variables.$line-height-solid;
+  color: variables.$color-base;
+
+  transform: translateY(-50%);
+
+  @include mixins.fluid(
+    left,
+    variables.$indent-mobile,
+    variables.$indent-desktop
+  );
+
+  @include media.desktop {
+    left: 0;
+  }
+}
+
+.header__toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  opacity: 1;
+
+  transition:
+    transform variables.$transition-fast,
+    opacity variables.$transition-fast,
+    background-color variables.$transition-fast;
+  transform: translateX(0);
+
+  pointer-events: auto;
+
+  @include media.tablet {
+    opacity: 0;
+
+    transform: translateX(120%);
+
+    pointer-events: none;
+  }
+}
+
+.header__button {
+  position: absolute;
+  top: 17px;
+
+  min-width: 98px;
+
+  @include button-mixin.button($is-tight: true);
+
+  @include media.sub-desktop {
+    transition:
+      box-shadow variables.$transition-base,
+      transform variables.$transition-fast,
+      opacity variables.$transition-fast;
+  }
+
+  @include mixins.fluid(
+    right,
+    (variables.$header-min-height + 4px),
+    (variables.$header-min-height + variables.$spacing-4),
+    variables.$breakpoint-ultra-slim,
+    variables.$breakpoint-mobile
+  );
+
+  @include media.tablet {
+    right: variables.$indent-desktop;
+  }
+
+  @include media.desktop {
+    right: 0;
+  }
+}
+
+.header__navigation {
+  transition:
+    height variables.$transition-fast,
+    top variables.$transition-fast;
+
+  @include media.below-tablet {
+    background-color: variables.$color-neutral-light;
+
+    @supports (backdrop-filter: blur(variables.$header-backdrop-blur)) {
+      background-color: rgba(variables.$color-white, 0.2);
+      backdrop-filter: blur(variables.$mobile-menu-backdrop-blur);
+    }
+  }
+
+  &--close {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 0;
+  }
+
+  &--open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: variables.$z-index-backdrop;
+
+    width: 100%;
+
+    height: 100%;
+    overflow-y: scroll;
+  }
+}

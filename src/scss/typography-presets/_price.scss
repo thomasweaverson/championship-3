@@ -1,0 +1,5 @@
+@use "./basic-text-presets" as basic;
+
+@mixin price-title {
+  @include basic.title-wide;
+}

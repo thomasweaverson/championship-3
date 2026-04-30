@@ -1,0 +1,229 @@
+@use "../abstracts/mixins" as mixins;
+@use "../typography-presets" as text-presets;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/button" as button-mixin;
+@use "../abstracts/figma-label" as figma;
+
+.not-found {
+  position: relative;
+
+  min-height: 400px;
+  overflow: hidden;
+
+  @include text-presets.text-primary-wide (
+    $size: variables.$font-size-s,
+    $line-height: 1,
+    $letter-spacing: variables.$letter-spacing-normal,
+    $color: variables.$color-base,
+    $color-opacity: 1
+  );
+}
+
+.not-found__container {
+  position: relative;
+  z-index: variables.$z-index-basic;
+
+  @include mixins.container;
+}
+
+.not-found__back-button {
+  @include button-mixin.button;
+}
+
+.not-found__image-container {
+  position: relative;
+  z-index: variables.$z-index-low;
+
+  text-align: center;
+}
+
+.not-found__flying-pointers {
+  position: absolute;
+  inset: variables.$header-min-height -10px 0 0;
+}
+
+.not-found__flying-pointer {
+  position: absolute;
+  will-change: transform;
+
+  &:nth-child(1) {
+    top: 15%;
+
+    animation: fly-chaos-1 10s infinite ease-in-out;
+
+    @include figma.figma-label(
+      $name: "Артур",
+      $is-accent: false,
+      $min-width: 65px
+    );
+  }
+
+  &:nth-child(2) {
+    top: 20%;
+    left: -200px;
+
+    animation: fly-chaos-2 9s infinite linear;
+    animation-delay: 3s;
+
+    @include figma.figma-label(
+      $name: "Сергей",
+      $is-accent: true,
+      $min-width: 94px
+    );
+  }
+
+  &:nth-child(3) {
+    top: 40%;
+    left: -200px;
+
+    animation: fly-chaos-3 10s infinite linear;
+    animation-delay: 2s;
+
+    @include figma.figma-label(
+      $name: "Миша",
+      $is-accent: false,
+      $min-width: 63px
+    );
+  }
+
+  &:nth-child(4) {
+    bottom: 30%;
+    left: -200px;
+
+    animation: fly-chaos-4 13s infinite cubic-bezier(0.45, 0, 0.55, 1);
+    animation-delay: 1s;
+
+    @include figma.figma-label(
+      $name: "UX Lead",
+      $is-accent: false,
+      $min-width: 81px
+    );
+  }
+
+  &:nth-child(5) {
+    bottom: 50%;
+    left: -200px;
+
+    animation: fly-chaos-5 17s infinite ease-in-out;
+    animation-delay: 2s;
+
+    @include figma.figma-label(
+      $name: "You",
+      $is-accent: true,
+      $min-width: 91px
+    );
+  }
+}
+
+/* 1. Медленный и вальяжный (слева направо) */
+
+/* 2. Быстрый и дерганый (справа налево) */
+.animation-2 {
+  animation: fly-chaos-2 8s infinite linear;
+  animation-delay: 3s;
+}
+
+/* 3. Средний с изменением высоты (справа налево) */
+.animation-3 {
+  animation: fly-chaos-3 20s infinite ease-in;
+  animation-delay: 5s;
+}
+
+/* 4. С задержкой и «петлей» по высоте (слева направо) */
+.animation-4 {
+  animation: fly-chaos-4 22s infinite cubic-bezier(0.45, 0, 0.55, 1);
+  animation-delay: 1s;
+}
+
+/* 5. Хаотичный рывок (справа налево) */
+.animation-5 {
+  animation: fly-chaos-5 18s infinite ease-out;
+  animation-delay: 8s;
+}
+
+/* Keyframes */
+
+@keyframes fly-chaos-1 {
+  0% {
+    transform: translate3d(-120vw, 10%, 0);
+  }
+
+  50% {
+    transform: translate3d(220vw, 30%, 0);
+  }
+
+  100% {
+    transform: translate3d(-120vw, 10%, 0);
+  }
+}
+
+@keyframes fly-chaos-2 {
+  0% {
+    transform: translate3d(220vw, 50%, 0);
+  }
+
+  40% {
+    transform: translate3d(-120vw, 20%, 0);
+  }
+
+  60% {
+    transform: translate3d(-120vw, 20%, 0);
+  } /* Пауза за экраном */
+  100% {
+    transform: translate3d(220vw, 50%, 0);
+  }
+}
+
+@keyframes fly-chaos-3 {
+  0% {
+    transform: translate3d(220vw, 80%, 0);
+  }
+
+  30% {
+    transform: translate3d(50vw, 10%, 0);
+  }
+
+  70% {
+    transform: translate3d(-120vw, 60%, 0);
+  }
+
+  100% {
+    transform: translate3d(220vw, 80%, 0);
+  }
+}
+
+@keyframes fly-chaos-4 {
+  0% {
+    transform: translate3d(-130vw, 40%, 0);
+  }
+
+  50% {
+    transform: translate3d(230vw, 70%, 0);
+  }
+
+  100% {
+    transform: translate3d(-130vw, 40%, 0);
+  }
+}
+
+@keyframes fly-chaos-5 {
+  0% {
+    transform: translate3d(250vw, 20%, 0);
+  }
+
+  25% {
+    transform: translate3d(-150vw, 80%, 0);
+  }
+
+  50% {
+    transform: translate3d(-150vw, 80%, 0);
+  }
+
+  75% {
+    transform: translate3d(250vw, 0%, 0);
+  }
+
+  100% {
+    transform: translate3d(250vw, 20%, 0);
+  }
+}

@@ -1,0 +1,336 @@
+@use "../abstracts/mixins" as mixins;
+@use "../typography-presets" as typography-presets;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/button" as button-mixin;
+@use "../abstracts/media-query" as media;
+@use "../abstracts/figma-label" as figma;
+@use "../abstracts/keyframes" as keyframes;
+
+.hero {
+  min-height: variables.$hero-min-height;
+}
+
+.hero__container {
+  position: relative;
+
+  min-height: variables.$hero-min-height;
+
+  @include mixins.container;
+}
+
+.hero__content {
+  @include mixins.fluid(
+    padding-top,
+    203px,
+    191px
+  );
+  @include mixins.fluid(
+    padding-bottom,
+    340px,
+    233px
+  );
+}
+
+.hero__promo {
+  margin: 0;
+
+  @include typography-presets.hero-title;
+
+  @include media.below-tablet {
+    @media (pointer: fine) {
+      // фикс исключительно для узкого Non-touch экрана с фиксированным скроллом
+      margin: 0 -15px 0 0;
+    }
+  }
+
+  @include mixins.fluid(
+    margin-bottom,
+    variables.$spacing-3,
+    33px
+  );
+}
+
+.hero__text-content {
+  @include mixins.fluid(
+    margin-left,
+    42px,
+    344px
+  );
+  @include mixins.fluid(
+    max-width,
+    345px,
+    445px
+  );
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      margin-left,
+      15px,
+      42px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}
+
+.hero__description {
+  margin: 0;
+
+  @include typography-presets.hero-base;
+  @include mixins.fluid(
+    margin-bottom,
+    variables.$spacing-5,
+    variables.$spacing-7
+  );
+}
+
+.hero__button {
+  min-width: 199px;
+
+  @include button-mixin.button;
+}
+
+// ============================================
+// Позиционирование фотографий
+// ============================================
+
+.hero__container--background {
+  position: relative;
+  overflow: hidden;
+}
+
+// ============================================
+// Анимация фона
+// ============================================
+
+.hero__animated-background {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero__tutors {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.hero__tutor {
+  position: absolute;
+
+  &--top {
+    @include mixins.fluid(
+      top,
+      40px,
+      34px
+    );
+    @include mixins.fluid(
+      right,
+      91px,
+      153px
+    );
+    @include mixins.fluid(
+      width,
+      221px,
+      329px
+    );
+
+    @include media.ultra-slim-only {
+      @include mixins.fluid(
+        right,
+        40px,
+        91px,
+        variables.$breakpoint-ultra-slim,
+        variables.$breakpoint-mobile
+      );
+    }
+  }
+
+  &--left {
+    left: 15px;
+
+    @include mixins.fluid(
+      bottom,
+      129px,
+      118px
+    );
+    @include mixins.fluid(
+      width,
+      117px,
+      175px
+    );
+
+    @include media.tablet {
+      @include mixins.fluid(
+        left,
+        15px,
+        94px,
+        variables.$breakpoint-tablet,
+        variables.$breakpoint-desktop
+      );
+    }
+  }
+
+  &--right {
+    @include mixins.fluid(
+      right,
+      15px,
+      269px
+    );
+    @include mixins.fluid(
+      bottom,
+      61px,
+      98px
+    );
+    @include mixins.fluid(
+      width,
+      221px,
+      329px
+    );
+
+    @include media.ultra-slim-only {
+      @include mixins.fluid(
+        width,
+        180px,
+        221px,
+        variables.$breakpoint-ultra-slim,
+        variables.$breakpoint-mobile
+      );
+    }
+  }
+}
+
+.hero__tutor-photo {
+  display: block;
+
+  width: 100%;
+
+  border-radius: 16px;
+
+  @include mixins.fluid(
+    border-radius,
+    16px,
+    24px
+  );
+}
+
+// ============================================
+// Стили для figma-pointers
+// ============================================
+
+.hero__figma-wrapper--hand {
+  @include figma.figma-label(
+    $name: "Артур",
+    $is-accent: false,
+    $min-width: 65px
+  );
+
+  &.hero__figma-wrapper--animated {
+    @include keyframes.mouse-subtle-move;
+  }
+
+  @include mixins.fluid(
+    left,
+    -132px,
+    -151px
+  );
+  @include mixins.fluid(
+    top,
+    17px,
+    33px
+  );
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      left,
+      -32px,
+      -132px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}
+
+.hero__figma-wrapper--left {
+  @include figma.figma-label(
+    $name: "Сергей",
+    $is-accent: false,
+    $min-width: 74px
+  );
+
+  &.hero__figma-wrapper--animated {
+    @include keyframes.mouse-wiggle-move;
+  }
+
+  @include mixins.fluid(
+    left,
+    110px,
+    195px
+  );
+  @include mixins.fluid(
+    bottom,
+    -49px,
+    10px
+  );
+
+  @include media.ultra-slim-only {
+    @include mixins.fluid(
+      left,
+      -15px,
+      110px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}
+
+.hero__figma-wrapper--right {
+  bottom: 183px;
+
+  @include figma.figma-label(
+    $name: "Миша",
+    $is-accent: false,
+    $min-width: 63px
+  );
+
+  &.hero__figma-wrapper--animated {
+    @include keyframes.mouse-jingle-move;
+  }
+
+  @include mixins.fluid(
+    right,
+    178px,
+    -47px,
+    variables.$breakpoint-mobile,
+    variables.$breakpoint-tablet
+  );
+
+  @include media.tablet {
+    @include mixins.fluid(
+      bottom,
+      183px,
+      143px,
+      variables.$breakpoint-tablet,
+      variables.$breakpoint-desktop
+    );
+  }
+
+  @include media.ultra-slim-only {
+    right: 93px;
+
+    @include mixins.fluid(
+      right,
+      93px,
+      178px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile
+    );
+  }
+}

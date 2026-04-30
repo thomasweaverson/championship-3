@@ -1,0 +1,144 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/state" as state;
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes mouse-subtle-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(6px, -4px);
+  }
+
+  50% {
+    transform: translate(-8px, 3px);
+  }
+
+  75% {
+    transform: translate(4px, 7px);
+  }
+
+  100% {
+    transform: translate(-3px, -5px);
+  }
+}
+
+@keyframes mouse-wiggle-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(17px, -1px);
+  }
+
+  50% {
+    transform: translate(-5px, 16px);
+  }
+
+  75% {
+    transform: translate(3px, 14px);
+  }
+
+  100% {
+    transform: translate(-14px, 1px);
+  }
+}
+
+@keyframes mouse-jingle-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(20px, 0);
+  }
+
+  50% {
+    transform: translate(0, 0);
+  }
+
+  75% {
+    transform: translate(3px, 15px);
+  }
+
+  100% {
+    transform: translate(-20px, -5px);
+  }
+}
+
+@keyframes reveal-up {
+  0% {
+    transform: translateY(variables.$reveal-translating);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-up-button-with-focus {
+  0% {
+    transform: translateY(variables.$reveal-translating) scale(variables.$scale-on-focus);
+  }
+
+  100% {
+    transform: translateY(0) scale(variables.$scale-on-focus);
+  }
+}
+
+@mixin slide-up($transition: variables.$transition-fast, $fill-mode: forwards) {
+  animation: slide-up $transition $fill-mode;
+}
+
+@mixin appear($transition: variables.$transition-slow, $fill-mode: forwards) {
+  animation: appear $transition $fill-mode;
+}
+
+@mixin mouse-subtle-move {
+  animation: mouse-subtle-move variables.$transition-mouse;
+}
+
+@mixin mouse-wiggle-move {
+  animation: mouse-wiggle-move variables.$transition-mouse-wiggle;
+}
+
+@mixin mouse-jingle-move {
+  animation: mouse-jingle-move variables.$transition-mouse-jingle;
+}
+
+@mixin reveal-up($transition: variables.$transition-reveal) {
+  animation: reveal-up $transition forwards;
+}
+
+@mixin reveal-up-button-with-focus($transition: variables.$transition-reveal) {
+  animation: reveal-up-button-with-focus $transition forwards;
+}

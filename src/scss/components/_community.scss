@@ -1,0 +1,28 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.community {
+  min-height: variables.$community-min-height;
+}
+
+.community__container {
+  @include mixins.container;
+  @include mixins.fluid(
+    padding-top,
+    90px,
+    69px
+  );
+  @include mixins.fluid(
+    padding-bottom,
+    127px,
+    90px
+  );
+}
+
+.community__gallery {
+  @include mixins.fluid(
+    margin-bottom,
+    20px,
+    37px
+  );
+}

@@ -1,0 +1,88 @@
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/media-query" as media;
+@use "../abstracts/state" as state;
+
+.logo {
+  color: variables.$color-base;
+
+  transition: transform variables.$transition-fast;
+
+  @include state.hover {
+    .logo__image {
+      filter: variables.$header-logo-hover-filter;
+    }
+  }
+
+  @include state.focus-visible {
+    outline: none;
+
+    .logo__image {
+      border-radius: 6px;
+
+      outline: 2px solid variables.$color-primary;
+      outline-offset: 8px;
+
+      transition: transform variables.$transition-fast;
+      transform: scale(1.05);
+      filter: none;
+    }
+  }
+
+  @include state.active {
+    .logo__image {
+      filter: variables.$header-logo-active-filter;
+
+      opacity: 0.8;
+    }
+  }
+
+  &--light {
+    color: variables.$color-white;
+
+    @include state.hover {
+      .logo__image {
+        transition: transform variables.$transition-fast;
+        filter: none;
+
+        transform: scale(1.05);
+      }
+    }
+
+    @include state.focus-visible {
+      .logo__image {
+        outline-color: variables.$color-white;
+        outline-offset: 18px;
+      }
+    }
+
+    @include state.active {
+      .logo__image {
+        opacity: 0.8;
+
+        transform: scale(1);
+        filter: none;
+      }
+    }
+  }
+}
+
+.logo__image {
+  width: 127px;
+  height: 28px;
+
+  transition:
+    filter variables.$transition-fast,
+    opacity variables.$transition-fast;
+
+  @include media.ultra-slim-only {
+    width: 90px;
+
+    @include mixins.fluid(
+      width,
+      90px,
+      127px,
+      variables.$breakpoint-ultra-slim,
+      variables.$breakpoint-mobile);
+  }
+}
