@@ -4,7 +4,10 @@
 #### Макет предоставлен компанией [Mish](https://mish.design/ru)
 #### Участник Артем Ткачев - 🥈
 
+![Превью проекта](./preview.jpg)
+
 [Посмотреть вживую](https://thomasweaverson.github.io/championship-3/)
+
 
 ## Установка и запуск
 
