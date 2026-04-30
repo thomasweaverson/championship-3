@@ -24,7 +24,6 @@
     "dev": "concurrently --raw --kill-others \"npm run image-processing:watch\" \"vite\"",
     "build": "npm run image-processing && vite build",
     "preview": "node scripts/check-dist.js && vite preview",
-    "preview:mpa": "node scripts/check-dist.js && serve dist -l 8080",
     "lint:css": "stylelint \"src/scss/**/*.scss\" --fix",
     "lint:js": "eslint src/js --fix --cache",
     "lint:html": "node scripts/check-dist.js && html-validate dist/**/*.html",
