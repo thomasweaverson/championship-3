@@ -27,7 +27,6 @@
 > html-validate проверяет html-файлы из папки dist.
 > Поэтому лучше запускать линтинг после сборки `npm run build`
 
-
 ## Дальше скучно
 
 ### Памятка, как пользоваться сборка
@@ -37,7 +36,6 @@
 запускает создание оптимизированных изображений и только потом запускает dev Режим
 Если изображения уже создавались - быстрее запускать сразу npm run dev
 
-
 ### Спрайт
 Сохранять файлы в `/src/assets/sprite`
 
@@ -45,7 +43,7 @@
 ```
 <svg class="logo__image" width="127" height="28" viewBox="0 0 127 28" fill="none"
   xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <use href="/sprite.svg#logo"></use>
+  <use href="./sprite.svg#logo"></use>
 </svg>
 ```
 

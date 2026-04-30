@@ -1,9 +1,10 @@
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import svgSpritemap from 'vite-plugin-svg-spritemap';
-import { resolve } from 'path';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'development' ? '/' : '/championship-3/',
 
   plugins: [
     svgSpritemap({
@@ -63,4 +64,4 @@ export default defineConfig({
     port: 8080,
     open: true,
   },
-});
+}));
