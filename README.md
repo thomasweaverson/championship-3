@@ -4,6 +4,8 @@
 #### Макет предоставлен компанией [Mish](https://mish.design/ru)
 #### Участник Артем Ткачев - 🥈
 
+[Посмотреть вживую](https://thomasweaverson.github.io/championship-3/)
+
 ## Установка и запуск
 
 **node 22.x**
