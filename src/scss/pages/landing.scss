@@ -56,6 +56,8 @@
 
   padding: 10px;
 
+  transition: color 0.3s ease;
+
   @include state.hover {
     cursor: pointer;
 
@@ -96,6 +98,38 @@
     variables.$font-size-xs,
     variables.$font-size-m
   );
+}
+
+.welcome__link {
+  font-weight: 500;
+  color: variables.$color-primary;
+  text-decoration: none;
+
+  @include state.hover {
+    text-decoration: underline;
+  }
+}
+
+.welcome__github {
+  font-weight: 500;
+  color: variables.$color-base;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+
+  svg {
+    vertical-align: text-bottom;
+
+    color: variables.$color-base;
+  }
+
+  @include state.hover {
+    color: variables.$color-primary;
+
+    svg {
+      color: variables.$color-base;
+    }
+  }
 }
 
 .welcome__map {
